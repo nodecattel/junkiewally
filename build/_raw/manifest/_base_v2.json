@@ -23,12 +23,12 @@
     "default_title": "__MSG_appName__"
   },
 
-  "author": "https://litescribe.io",
+  "author": "https://junkiewally.xyz",
   "background": {
     "page": "background.html",
     "persistent": true
   },
-  "homepage_url": "https://litescribe.io",
+  "homepage_url": "https://junkiewally.xyz",
   "permissions": ["storage", "unlimitedStorage", "activeTab"],
   "short_name": "__MSG_appName__",
 

@@ -17,7 +17,7 @@ function MintItem({ info }: { info: InscriptionMintedItem }) {
           text="More"
           color="gold"
           onClick={() => {
-            window.open('https://ordliteverse.com/');
+            window.open('https://junkinals.junkiewally.xyz/');
           }}
         />
       </Row>

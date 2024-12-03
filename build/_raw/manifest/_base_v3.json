@@ -2,35 +2,36 @@
   "manifest_version": 3,
   "name": "__MSG_appName__",
   "version": "1.0",
-
   "default_locale": "en",
   "description": "__MSG_appDescription__",
   "icons": {
-    "16": "/images/logo/logo@16x.png",
-    "32": "/images/logo/logo@32x.png",
-    "48": "/images/logo/logo@48x.png",
-    "128": "/images/logo/logo@128x.png"
+    "16": "images/logo/logo@16x.png",
+    "32": "images/logo/logo@32x.png",
+    "48": "images/logo/logo@48x.png",
+    "128": "images/logo/logo@128x.png"
   },
-
   "action": {
     "default_popup": "index.html",
     "default_icon": {
-      "16": "/images/logo/logo@16x.png",
-      "32": "/images/logo/logo@32x.png",
-      "48": "/images/logo/logo@48x.png",
-      "128": "/images/logo/logo@128x.png"
+      "16": "images/logo/logo@16x.png",
+      "32": "images/logo/logo@32x.png",
+      "48": "images/logo/logo@48x.png",
+      "128": "images/logo/logo@128x.png"
     },
     "default_title": "__MSG_appName__"
   },
-
-  "author": "https://litescribe.io",
+  "author": "https://junkiewally.xyz",
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
-  "homepage_url": "https://litescribe.io",
-  "permissions": ["storage", "unlimitedStorage", "activeTab"],
+  "homepage_url": "https://junkiewally.xyz",
+  "permissions": [
+    "storage",
+    "unlimitedStorage", 
+    "activeTab"
+  ],
   "short_name": "__MSG_appName__",
-
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -39,10 +40,9 @@
       "all_frames": true
     }
   ],
-
   "web_accessible_resources": [
     {
-      "resources": ["pageProvider.js"],
+      "resources": ["pageProvider.js", "ui.js"],
       "matches": ["<all_urls>"]
     }
   ],

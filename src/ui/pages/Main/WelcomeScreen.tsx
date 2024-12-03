@@ -17,7 +17,7 @@ export default function WelcomeScreen() {
           </Row>
           <Column gap="xl" mt="xxl">
             <Text
-              text={"Inscribe and store your inscriptions in the world's first Open Source Chrome wallet for Litecoin Ordinals!"}
+              text={"A Web3 Wallet for junkie on Junkcoin OG chain"}
               preset="sub"
               textCenter
             />

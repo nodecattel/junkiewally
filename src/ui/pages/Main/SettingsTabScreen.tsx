@@ -38,7 +38,7 @@ const SettingList: Setting[] = [
 
   {
     label: 'Address Type',
-    value: 'Taproot',
+    value: 'Legacy',
     desc: '',
     action: 'addressType',
     route: '/settings/address-type',

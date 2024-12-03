@@ -104,6 +104,8 @@ export const LANGS = [
   }
 ];
 
+
+// Update address types with coinType 3 for Junkcoin
 export const ADDRESS_TYPES: {
   value: AddressType;
   label: string;
@@ -116,87 +118,63 @@ export const ADDRESS_TYPES: {
     value: AddressType.P2PKH,
     label: 'P2PKH',
     name: 'Legacy (P2PKH)',
-    hdPath: "m/44'/2'/0'/0",
+    hdPath: "m/44'/3'/0'/0",  // Changed to coinType 3
     displayIndex: 3,
     isUnisatLegacy: false
-  },
-  {
-    value: AddressType.P2WPKH,
-    label: 'P2WPKH',
-    name: 'Native Segwit (P2WPKH)',
-    hdPath: "m/84'/2'/0'/0",
-    displayIndex: 0,
-    isUnisatLegacy: false
-  },
-  {
-    value: AddressType.P2TR,
-    label: 'P2TR',
-    name: 'Taproot (P2TR)',
-    hdPath: "m/86'/2'/0'/0",
-    displayIndex: 2,
-    isUnisatLegacy: false
-  },
-  {
-    value: AddressType.P2SH_P2WPKH,
-    label: 'P2SH-P2WPKH',
-    name: 'Nested Segwit (P2SH-P2WPKH)',
-    hdPath: "m/49'/2'/0'/0",
-    displayIndex: 1,
-    isUnisatLegacy: false
-  },
-  {
-    value: AddressType.M44_P2WPKH,
-    label: 'P2WPKH',
-    name: 'Native SegWit (P2WPKH)',
-    hdPath: "m/44'/2'/0'/0",
-    displayIndex: 4,
-    isUnisatLegacy: true
-  },
-  {
-    value: AddressType.M44_P2TR,
-    label: 'P2TR',
-    name: 'Taproot (P2TR)',
-    hdPath: "m/44'/2'/0'/0",
-    displayIndex: 5,
-    isUnisatLegacy: true
   }
+ // {
+ //   value: AddressType.P2WPKH,
+ //   label: 'P2WPKH',
+ //   name: 'Native Segwit (P2WPKH)',
+ //   hdPath: "m/84'/3'/0'/0",  // Changed to coinType 3
+ //   displayIndex: 0,
+ //   isUnisatLegacy: false
+ // },
+ // {
+ //   value: AddressType.P2TR,
+ //   label: 'P2TR',
+ //   name: 'Taproot (P2TR)',
+ //   hdPath: "m/86'/3'/0'/0",  // Changed to coinType 3
+ //   displayIndex: 2,
+ //   isUnisatLegacy: false
+ // },
+ // {
+ //   value: AddressType.P2SH_P2WPKH,
+ //   label: 'P2SH-P2WPKH',
+ //   name: 'Nested Segwit (P2SH-P2WPKH)',
+ //   hdPath: "m/49'/3'/0'/0",  // Changed to coinType 3
+ //   displayIndex: 1,
+ //   isUnisatLegacy: false
+ // },
+ //{
+ //   value: AddressType.M44_P2WPKH,
+ //   label: 'P2WPKH',
+ //   name: 'Native SegWit (P2WPKH)', 
+ //   hdPath: "m/44'/3'/0'/0",  // Changed to coinType 3
+ //   displayIndex: 4,
+ //   isUnisatLegacy: true
+ // },
+ // {
+ //   value: AddressType.M44_P2TR,
+ //   label: 'P2TR',
+ //   name: 'Taproot (P2TR)',
+ //   hdPath: "m/44'/3'/0'/0",  // Changed to coinType 3
+ //   displayIndex: 5,
+ //   isUnisatLegacy: true
+ // }
 ];
 
-export const OW_HD_PATH = "m/86'/0'/0'";
-
-export const RESTORE_WALLETS: { value: RestoreWalletType; name: string; addressTypes: AddressType[] }[] = [
+export const RESTORE_WALLETS = [
   {
     value: RestoreWalletType.UNISAT,
-    name: 'Litescribe Wallet',
+    name: 'JunkieWally',  // Update wallet name
     addressTypes: [
-      AddressType.P2WPKH,
-      AddressType.P2SH_P2WPKH,
-      AddressType.P2TR,
-      AddressType.P2PKH,
-      AddressType.M44_P2WPKH,
-      AddressType.M44_P2TR
-    ]
-  },
-  {
-    value: RestoreWalletType.SPARROW,
-    name: 'Sparrow Wallet',
-    addressTypes: [AddressType.P2PKH, AddressType.P2WPKH, AddressType.P2SH_P2WPKH, AddressType.P2TR]
-  },
-  {
-    value: RestoreWalletType.XVERSE,
-    name: 'Xverse Wallet',
-    addressTypes: [AddressType.P2SH_P2WPKH, AddressType.P2TR]
-  },
-  {
-    value: RestoreWalletType.OTHERS,
-    name: 'Other Wallet',
-    addressTypes: [
-      AddressType.P2PKH,
-      AddressType.P2WPKH,
-      AddressType.P2SH_P2WPKH,
-      AddressType.P2TR,
-      AddressType.M44_P2WPKH,
-      AddressType.M44_P2TR
+    //  AddressType.P2WPKH,
+    //  AddressType.P2SH_P2WPKH,
+    //  AddressType.P2TR,
+      AddressType.P2PKH
+    //  AddressType.M44_P2WPKH,
+    //  AddressType.M44_P2TR
     ]
   }
 ];
@@ -221,16 +199,16 @@ export const WALLETCONNECT_STATUS_MAP = {
   FAILD: 6
 };
 
-export const INTERNAL_REQUEST_ORIGIN = 'https://litescribe.io';
+export const INTERNAL_REQUEST_ORIGIN = 'https://junkcoin-ord.com';
 
 export const INTERNAL_REQUEST_SESSION = {
-  name: 'Litescribe Wallet',
+  name: 'JunkieWally',
   origin: INTERNAL_REQUEST_ORIGIN,
   icon: './images/logo/logo@128x.png'
 };
 
-export const OPENAPI_URL_MAINNET = 'https://litescribe.io/api';
-export const OPENAPI_URL_TESTNET = 'https://testnet.litescribe.io/api';
+export const OPENAPI_URL_MAINNET = 'https://junkcoin-ord.com';
+export const OPENAPI_URL_TESTNET = 'https://testnet.junkcoin-ord.com';
 
 export const EVENTS = {
   broadcastToUI: 'broadcastToUI',
@@ -266,14 +244,12 @@ export const TO_LOCALE_STRING_CONFIG = {
 export const SUPPORTED_DOMAINS = ['sats', 'unisat', 'x', 'btc'];
 export const SAFE_DOMAIN_CONFIRMATION = 3;
 
-export const SATS_DOMAIN = '.lits';
-export const UNISAT_DOMAIN = '.unilit';
-export const LTC_DOMAIN = '.ltc';
-export const LITE_DOMAIN = '.lite';
+export const SATS_DOMAIN = '.jkc';
+export const UNISAT_DOMAIN = '.junkie';
 
-export const GITHUB_URL = 'https://github.com/LiteVerseHoldings/extension-ltc';
-export const DISCORD_URL = 'https://discord.gg/Ffs5fTuCf7';
-export const TWITTER_URL = 'https://twitter.com/litescribe_io';
+export const GITHUB_URL = 'https://github.com/nodecattel/JunkieWally';
+export const DISCORD_URL = '';
+export const TWITTER_URL = 'https://twitter.com/junkiewally';
 
 export const CHANNEL = process.env.channel!;
 export const VERSION = process.env.release!;
@@ -282,3 +258,16 @@ export const MANIFEST_VERSION = process.env.manifest!;
 export enum AddressFlagType {
   Is_Enable_Atomicals = 0b1
 }
+
+// Network ports (from chainparamsbase.cpp)
+export const RPC_PORT_MAINNET = 9771;
+export const RPC_PORT_TESTNET = 29919;
+
+// Amount constants (from amount.h)
+export const COIN = 100000000; // 1 JKC = 100000000 satoshis
+export const CENT = 1000000;   // 0.01 JKC
+export const MAX_MONEY = 54000000 * COIN;
+
+// Fee constants
+export const MIN_TX_FEE = 0.10000000;
+export const MIN_RELAY_TX_FEE = 0.10000000;

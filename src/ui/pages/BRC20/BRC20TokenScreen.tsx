@@ -77,7 +77,7 @@ export default function BRC20TokenScreen() {
                 disabled={outOfMint}
                 icon="pencil"
                 onClick={(e) => {
-                  window.open(`https://litescribe.io/ltc20/${encodeURIComponent(ticker)}`);
+                  window.open(`https://junkiewally.xyz/jkc20/${encodeURIComponent(ticker)}`);
                 }}
                 full
               />

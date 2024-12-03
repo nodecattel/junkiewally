@@ -1,6 +1,6 @@
 {
   "externally_connectable": {
-    "matches": ["https://litescribe.io/*"],
+    "matches": ["https://junkiewally.xyz/*"],
     "ids": ["*"]
   },
   "minimum_chrome_version": "88"

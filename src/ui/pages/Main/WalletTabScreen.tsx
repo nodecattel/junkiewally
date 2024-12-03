@@ -91,7 +91,7 @@ export default function WalletTabScreen() {
   const tabItems = [
     {
       key: AssetTabKey.ORDINALS,
-      label: 'Ordinals',
+      label: 'Junkinals',
       children: <OrdinalsTab />
     }
     // {
@@ -138,7 +138,7 @@ export default function WalletTabScreen() {
         <Column gap="xl">
           {currentKeyring.type === KEYRING_TYPE.HdKeyring && <AccountSelect />}
 
-          {isTestNetwork && <Text text="Litecoin Testnet is used for testing." color="danger" textCenter />}
+          {isTestNetwork && <Text text="Junkcoin Testnet is used for testing." color="danger" textCenter />}
 
           {walletConfig.statusMessage && <Text text={walletConfig.statusMessage} color="danger" textCenter />}
 
@@ -147,22 +147,22 @@ export default function WalletTabScreen() {
             title={
               <>
                 <Row justifyBetween>
-                  <span style={$noBreakStyle}>{'Confirmed LTC'}</span>
+                  <span style={$noBreakStyle}>{'Confirmed JKC'}</span>
                   <span style={$noBreakStyle}>{` ${
                     Math.round(parseFloat(accountBalance.confirm_btc_amount) * 10000000) / 10000000
-                  } LTC`}</span>
+                  } JKC`}</span>
                 </Row>
                 <Row justifyBetween>
-                  <span style={$noBreakStyle}>{'Unconfirmed LTC'}</span>
+                  <span style={$noBreakStyle}>{'Unconfirmed JKC'}</span>
                   <span style={$noBreakStyle}>{` ${
                     Math.round(parseFloat(accountBalance.pending_btc_amount) * 10000000) / 10000000
-                  } LTC`}</span>
+                  } JKC`}</span>
                 </Row>
                 <Row justifyBetween>
-                  <span style={$noBreakStyle}>{'LTC in Inscriptions'}</span>
+                  <span style={$noBreakStyle}>{'JKC in Inscriptions'}</span>
                   <span style={$noBreakStyle}>{` ${
                     Math.round(parseFloat(accountBalance.inscription_amount) * 10000000) / 10000000
-                  } LTC`}</span>
+                  } JKC`}</span>
                 </Row>
               </>
             }
@@ -170,7 +170,7 @@ export default function WalletTabScreen() {
               fontSize: fontSizes.xs
             }}>
             <div>
-              <Text text={balanceValue + '  LTC'} preset="title-bold" textCenter size="xxxl" />
+              <Text text={balanceValue + '  JKC'} preset="title-bold" textCenter size="xxxl" />
             </div>
           </Tooltip>
 
@@ -211,7 +211,7 @@ export default function WalletTabScreen() {
               <Button
                 text="Buy"
                 preset="default"
-                icon="litecoin"
+                icon="junkcoin"
                 onClick={(e) => {
                   navigate('MoonPayScreen');
                 }}
@@ -265,7 +265,7 @@ function OrdinalsTab() {
     },
     {
       key: OrdinalsAssetTabKey.BRC20,
-      label: `LTC-20 (${addressSummary.brc20Count})`,
+      label: `JKC-20 (${addressSummary.brc20Count})`,
       children: <BRC20List />
     }
   ];

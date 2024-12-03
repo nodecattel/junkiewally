@@ -2,38 +2,33 @@
 import * as bitcoin from 'bitcoinjs-lib';
 import ECPairFactory from 'ecpair';
 import * as ecc from 'tiny-secp256k1';
-
 import { AddressType, NetworkType } from '@/shared/types';
 
 bitcoin.initEccLib(ecc);
 const ECPair = ECPairFactory(ecc);
 
-const LITECOIN = {
-  messagePrefix: '\x19Litecoin Signed Message:\n',
-  bech32: 'ltc',
+const JUNKCOIN = {
+  messagePrefix: '\x19Junkcoin Signed Message:\n',
+  bech32: 'jkc',
   bip32: {
-    public: 0x019da462,
-    private: 0x019d9cfe
+    public: 0x0488b21e,
+    private: 0x0488ade4
   },
-  pubKeyHash: 0x30,
-  scriptHash: 0x32,
-  wif: 0xb0,
-  ltub: 0x019da462,
-  ltpv: 0x019d9cfe
+  pubKeyHash: 0x10,
+  scriptHash: 0x05,
+  wif: 0x90
 };
 
-const LITECOIN_TESTNET = {
-  messagePrefix: '\x19Litecoin Signed Message:\n',
-  bech32: 'tltc',
+const JUNKCOIN_TESTNET = {
+  messagePrefix: '\x19Junkcoin Signed Message:\n',
+  bech32: 'tjkc',
   bip32: {
-    public: 0x043587cf,
-    private: 0x04358394
+    public: 0x02fafd,
+    private: 0x02fc98
   },
-  pubKeyHash: 0x6f,
-  scriptHash: 0x3a,
-  wif: 0xef,
-  tpub: 0x0436f6e1,
-  tprv: 0x0436ef7d
+  pubKeyHash: 0x10,
+  scriptHash: 0x05,
+  wif: 0x96
 };
 
 export const validator = (pubkey: Buffer, msghash: Buffer, signature: Buffer): boolean =>
@@ -41,10 +36,9 @@ export const validator = (pubkey: Buffer, msghash: Buffer, signature: Buffer): b
 
 export function toPsbtNetwork(networkType: NetworkType) {
   if (networkType === NetworkType.MAINNET) {
-    // return bitcoin.networks.bitcoin;
-    return LITECOIN;
+    return JUNKCOIN;
   } else {
-    return LITECOIN_TESTNET;
+    return JUNKCOIN_TESTNET;
   }
 }
 
@@ -52,6 +46,7 @@ export function publicKeyToAddress(publicKey: string, type: AddressType, network
   const network = toPsbtNetwork(networkType);
   if (!publicKey) return '';
   const pubkey = Buffer.from(publicKey, 'hex');
+
   if (type === AddressType.P2PKH) {
     const { address } = bitcoin.payments.p2pkh({
       pubkey,
@@ -86,7 +81,7 @@ export function publicKeyToAddress(publicKey: string, type: AddressType, network
   }
 }
 
-export function isValidAddress(address, network: bitcoin.Network) {
+export function isValidAddress(address: string, network: bitcoin.Network) {
   let error;
   try {
     bitcoin.address.toOutputScript(address, network);
