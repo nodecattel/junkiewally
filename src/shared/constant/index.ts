@@ -199,7 +199,7 @@ export const WALLETCONNECT_STATUS_MAP = {
   FAILD: 6
 };
 
-export const INTERNAL_REQUEST_ORIGIN = 'https://junkcoin-ord.com';
+export const INTERNAL_REQUEST_ORIGIN = 'https://junkiewally.xyz';
 
 export const INTERNAL_REQUEST_SESSION = {
   name: 'JunkieWally',
@@ -207,8 +207,8 @@ export const INTERNAL_REQUEST_SESSION = {
   icon: './images/logo/logo@128x.png'
 };
 
-export const OPENAPI_URL_MAINNET = 'https://junkcoin-ord.com';
-export const OPENAPI_URL_TESTNET = 'https://testnet.junkcoin-ord.com';
+export const OPENAPI_URL_MAINNET = 'https://api.junkiewally.xyz';
+export const OPENAPI_URL_TESTNET = 'https://testnet-api.junkiewally.xyz';
 
 export const EVENTS = {
   broadcastToUI: 'broadcastToUI',
@@ -247,7 +247,7 @@ export const SAFE_DOMAIN_CONFIRMATION = 3;
 export const SATS_DOMAIN = '.jkc';
 export const UNISAT_DOMAIN = '.junkie';
 
-export const GITHUB_URL = 'https://github.com/nodecattel/JunkieWally';
+export const GITHUB_URL = 'https://github.com/nodecattel/junkiewally';
 export const DISCORD_URL = '';
 export const TWITTER_URL = 'https://twitter.com/junkiewally';
 
