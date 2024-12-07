@@ -123,6 +123,25 @@ const fixWalletSdkError = () => {
   fs.writeFileSync(file, fileData);
 };
 
+const fixBitcoreVersionCheck = () => {
+  const file = './node_modules/bitcore-lib/index.js';
+  let fileData = fs.readFileSync(file).toString();
+  fileData = fileData.replace(
+    `bitcore.versionGuard = function(version) {
+  if (version !== undefined) {
+    var message = 'More than one instance of bitcore-lib found. ' +
+      'Please make sure to require bitcore-lib and check that submodules do' +
+      ' not also include their own bitcore-lib dependency.';
+    throw new Error(message);
+  }
+};`,
+    `bitcore.versionGuard = function(version) {
+  // Version check removed
+};`
+  );
+  fs.writeFileSync(file, fileData);
+};
+
 const run = async () => {
   let success = true;
   try {
@@ -132,6 +151,7 @@ const run = async () => {
     fixWindowError4();
     fixBufferError();
     fixWalletSdkError();
+    fixBitcoreVersionCheck();
   } catch (e) {
     console.error('error:', e.message);
     success = false;
