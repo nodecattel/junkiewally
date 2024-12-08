@@ -1,7 +1,7 @@
 import { useGetCurrentAccount, useWalletState } from "../states/walletState";
 import { useControllersState } from "../states/controllerState";
 import { satoshisToAmount } from "@/shared/utils/transactions";
-import { Psbt, Transaction } from "belcoinjs-lib";
+import { Psbt, Transaction } from "junkcoinjs-lib";
 import type { Hex } from "@/background/services/keyring/types";
 import { t } from "i18next";
 import { Inscription, OrdUTXO } from "@/shared/interfaces/inscriptions";
@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 import { gptFeeCalculate, ss } from "../utils";
 import { useAppState } from "../states/appState";
 
-export function useCreateBellsTxCallback() {
+export function useCreateJKCTxCallback() {
   const { selectedAccount, selectedWallet } = useWalletState(
     ss(["selectedAccount", "selectedWallet"])
   );
@@ -78,7 +78,7 @@ export function useCreateBellsTxCallback() {
       );
     }
 
-    const psbtHex = await keyringController.sendBEL({
+    const psbtHex = await keyringController.SendBEL({
       to: toAddress,
       amount: toAmount,
       utxos,
@@ -206,7 +206,7 @@ export const useSendTransferTokens = () => {
   };
 };
 
-export function usePushBellsTxCallback() {
+export function usePushJKCTxCallback() {
   const { apiController } = useControllersState(ss(["apiController"]));
 
   return async (rawtx: string) => {

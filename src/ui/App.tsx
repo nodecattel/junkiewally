@@ -18,7 +18,7 @@ import PortMessage from "@/shared/utils/message/portMessage";
 import { ss } from "./utils";
 import { useInscriptionManagerContext } from "./utils/inscriptions-ctx";
 import { TailSpin } from "react-loading-icons";
-import { NINTONDO_URL } from "@/shared/constant";
+import { JUNKCOIN_URL } from "@/shared/constant";
 import { browserTabsCreate } from "@/shared/utils/browser";
 
 export default function App() {
@@ -105,7 +105,7 @@ export default function App() {
 
   const onOpenNintondo = async () => {
     await browserTabsCreate({
-      url: NINTONDO_URL,
+      url: JUNKCOIN_URL,
       active: true,
     });
   };

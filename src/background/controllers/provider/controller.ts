@@ -1,4 +1,4 @@
-import { networks, Psbt } from "belcoinjs-lib";
+import { networks, Psbt } from "junkcoinjs-lib";
 import { keyringService, storageService } from "../../services";
 import "reflect-metadata/lite";
 import permission from "@/background/services/permission";
@@ -163,7 +163,7 @@ class ProviderController implements IProviderController {
 
     if (!utxos?.length) throw new Error("Not enough utxos");
 
-    const tx = await keyringService.sendBEL({
+    const tx = await keyringService.SendBEL({
       ...payload,
       utxos,
       network,
@@ -216,7 +216,7 @@ class ProviderController implements IProviderController {
       throw ethErrors.provider.chainDisconnected("Account not found");
     }
     const network =
-      networkStr === "testnet" ? networks.testnet : networks.bellcoin;
+      networkStr === "testnet" ? networks.testnet : networks.junkcoin;
     await walletController.switchNetwork(network);
     return networkStr;
   };

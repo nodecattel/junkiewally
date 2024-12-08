@@ -1,4 +1,4 @@
-import { address, Network, networks } from "belcoinjs-lib";
+import { address, Network, networks } from "junkcoinjs-lib";
 import { AddressType } from "bellhdw";
 import { useShallow } from "zustand/react/shallow";
 

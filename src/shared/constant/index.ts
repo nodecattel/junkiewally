@@ -1,5 +1,5 @@
 import { isTestnet } from "@/ui/utils";
-import { Network, networks } from "belcoinjs-lib";
+import { Network, networks } from "junkcoinjs-lib";
 import { AddressType } from "bellhdw/src/hd/types";
 
 export const KEYRING_TYPE = {
@@ -15,7 +15,7 @@ export const IS_LINUX = /linux/i.test(navigator.userAgent);
 export const IS_WINDOWS = /windows/i.test(navigator.userAgent);
 
 export const NETOWRKS: { name: string; network: Network }[] = [
-  { name: "MAINNET", network: networks.bellcoin },
+  { name: "MAINNET", network: networks.junkcoin },
   { name: "TESTNET", network: networks.testnet },
 ];
 
@@ -26,24 +26,14 @@ export const ADDRESS_TYPES: {
   hdPath: string;
 }[] = [
   {
-    value: AddressType.P2WPKH,
-    label: "P2WPKH",
-    name: "Native Segwit (P2WPKH)",
-    hdPath: "m/84'/0'/0'/0",
-  },
-  {
     value: AddressType.P2PKH,
     label: "P2PKH",
     name: "Legacy (P2PKH)",
     hdPath: "m/44'/0'/0'/0",
   },
-  {
-    value: AddressType.P2TR,
-    label: "P2TR",
-    name: "Taproot (P2TR)",
-    hdPath: "m/86'/0'/0'/0",
-  },
 ];
+export const DEFAULT_HD_PATH = ADDRESS_TYPES[0].hdPath;
+export const DEFAULT_TYPE = ADDRESS_TYPES[0].value;
 
 export const EVENTS = {
   broadcastToUI: "broadcastToUI",
@@ -56,38 +46,22 @@ export const EVENTS = {
   },
 };
 
-const NINTONDO_API_URL = process.env.API_URL ?? "https://api.nintondo.io/api";
+export const JUNKCOIN_URL = "https://jukiewally.xyz";
+export const API_URL = "https://api.junkiewally.xyz";
+export const EXPLORER_URL = "https://junkpool.blockraid.io"
+export const SPLITTER_URL = JUNKCOIN_URL + "/belinals/splitter";
 
 const CONTENT_URL =
   process.env.CONTENT_URL ?? "https://content.nintondo.io/api/pub";
+export const getContentUrl = () => CONTENT_URL;
+
 const HISTORY_URL =
   process.env.HISTORY_URL ?? "https://history.nintondo.io/pub";
-
-export const NINTONDO_URL = "https://nintondo.io";
-export const SPLITTER_URL = NINTONDO_URL + "/belinals/splitter";
-
-const TESTNET_NINTONDO_API_URL =
-  process.env.TESTNET_API_URL ?? "https://testnet.nintondo.io/electrs";
-const TESTNET_CONTENT_URL =
-  process.env.TESTNET_CONTENT_URL ?? "https://testnet.nintondo.io/api/pub";
-
-export const getContentUrl = (network: Network) =>
-  isTestnet(network) ? TESTNET_CONTENT_URL : CONTENT_URL;
-
-export const getApiUrl = (network: Network) =>
-  isTestnet(network) ? TESTNET_NINTONDO_API_URL : NINTONDO_API_URL;
-
-export const getHistoryUrl = (network: Network) =>
-  isTestnet(network) ? TESTNET_HISTORY_URL : HISTORY_URL;
-
-const TESTNET_HISTORY_URL =
-  process.env.TESTNET_HISTORY_URL ?? "https://testnet.nintondo.io/history/pub";
+export const getHistoryUrl = () => HISTORY_URL;
 
 export const DEFAULT_FEES = {
-  fast: 500,
-  slow: 20,
+  fast: 20000,
+  slow: 10000,
 };
 
 export const DEFAULT_SERVICE_FEE = 1_000_000;
-
-export const DEFAULT_HD_PATH = "m/44'/0'/0'/0";

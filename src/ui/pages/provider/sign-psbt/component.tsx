@@ -28,7 +28,7 @@ const SignPsbt = () => {
       return;
     }
     setFields(resultFields.fields[0]);
-    setFee(resultFields.fee + " BEL");
+    setFee(resultFields.fee + " JKC");
     setLoading(false);
   }, [getPsbtFields, fields]);
 

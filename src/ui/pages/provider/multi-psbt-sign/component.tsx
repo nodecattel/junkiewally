@@ -32,7 +32,7 @@ const MultiPsbtSign = () => {
       return;
     }
     setFields(resultFields.fields);
-    setFee(resultFields.fee + " BEL");
+    setFee(resultFields.fee + " JKC");
     setLoading(false);
   }, [getPsbtFields, fields, notificationController]);
 

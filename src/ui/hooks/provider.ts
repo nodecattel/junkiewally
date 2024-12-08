@@ -8,7 +8,7 @@ import {
   LocationValue,
   SignPsbtOptions,
 } from "@/shared/interfaces/provider";
-import { Psbt } from "belcoinjs-lib";
+import { Psbt } from "junkcoinjs-lib";
 import { toFixed } from "@/shared/utils/transactions";
 import { useGetCurrentAccount } from "../states/walletState";
 import { useAppState } from "../states/appState";
@@ -127,7 +127,7 @@ export const useDecodePsbtInputs = () => {
           label: `Output #${i}`,
           value: {
             text: `${f.address}`,
-            value: `${toFixed(f.value / 10 ** 8)} BEL`,
+            value: `${toFixed(f.value / 10 ** 8)} JKC`,
           },
         });
       });
@@ -154,19 +154,19 @@ export const useDecodePsbtInputs = () => {
             value = {
               anyonecanpay: true,
               inscriptions: foundInscriptions.map((i) => i.genesis),
-              value: `${toFixed(inputValue)} BEL`,
+              value: `${toFixed(inputValue)} JKC`,
             };
           } else {
             value = {
               anyonecanpay: true,
               text: `${outpoint.split("i")[0]}`,
-              value: `${toFixed(inputValue)} BEL`,
+              value: `${toFixed(inputValue)} JKC`,
             };
           }
         } else {
           value = {
             text: `${outpoint.split("i")[0]}`,
-            value: `${toFixed(inputValue)} BEL`,
+            value: `${toFixed(inputValue)} JKC`,
           };
         }
 

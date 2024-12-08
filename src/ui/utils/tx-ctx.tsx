@@ -62,7 +62,7 @@ const useTransactionManager = (): TransactionManagerContextType | undefined => {
   );
 
   const updateLastBlock = useCallback(async () => {
-    const data = await apiController.getLastBlockBEL();
+    const data = await apiController.getLastBlockJKC();
     if (data) setLastBlock(data);
   }, [apiController]);
 
@@ -71,9 +71,9 @@ const useTransactionManager = (): TransactionManagerContextType | undefined => {
   }, [apiController]);
 
   const updatePrice = useCallback(async () => {
-    const data = await apiController.getBELPrice();
-    if (data?.bellscoin) {
-      setCurrentPrice(data.bellscoin.usd);
+    const data = await apiController.getJKCPrice();
+    if (data?.junkcoin) {
+      setCurrentPrice(data.junkcoin.usd);
     }
   }, [apiController]);
 

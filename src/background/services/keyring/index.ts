@@ -1,7 +1,7 @@
 import { KeyringServiceError } from "./consts";
 import type { Hex, Json, SendBEL, SendOrd, UserToSignInput } from "./types";
 import { storageService } from "@/background/services";
-import { Network, payments, Psbt } from "belcoinjs-lib";
+import { Network, payments, Psbt } from "junkcoinjs-lib";
 import { getScriptForAddress, toXOnly } from "@/shared/utils/transactions";
 import {
   createMultisendOrd,
@@ -193,7 +193,7 @@ class KeyringService {
     return keyring.exportPublicKey(address);
   }
 
-  async sendBEL(data: SendBEL) {
+  async SendBEL(data: SendBEL) {
     const account = storageService.currentAccount;
     const wallet = storageService.currentWallet;
     if (!account?.address || !wallet)

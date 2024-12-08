@@ -2,7 +2,7 @@ import s from "./styles.module.scss";
 import config from "../../../../package.json";
 import { FC, ReactNode } from "react";
 import { browserTabsCreate } from "@/shared/utils/browser";
-import { NINTONDO_URL } from "@/shared/constant";
+import { JUNKCOIN_URL } from "@/shared/constant";
 
 interface SettingsLayoutProps {
   children: ReactNode;
@@ -18,7 +18,7 @@ const SettingsLayout: FC<SettingsLayoutProps> = ({ children }) => {
           href="#"
           onClick={async () => {
             await browserTabsCreate({
-              url: NINTONDO_URL,
+              url: JUNKCOIN_URL,
               active: true,
             });
           }}

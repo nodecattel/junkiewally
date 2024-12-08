@@ -1,4 +1,4 @@
-import { Network, Psbt } from "belcoinjs-lib";
+import { Network, Psbt } from "junkcoinjs-lib";
 import { keyringService } from "../services";
 import type { Hex, SendBEL, SendOrd } from "../services/keyring/types";
 import type { IPrivateWallet } from "@/shared/interfaces";
@@ -21,7 +21,7 @@ export interface IKeyringController {
     from: string;
     data: string;
   }): Promise<string>;
-  sendBEL(data: SendBEL): Promise<string>;
+  SendBEL(data: SendBEL): Promise<string>;
   sendOrd(data: Omit<SendOrd, "amount">): Promise<string>;
   changeAddressType(
     walletIndex: number,
@@ -108,8 +108,8 @@ class KeyringController implements IKeyringController {
    * @param {SendBEL} data Input data for the transaction
    * @returns {Promise<string>} Hex of transaction to push transaction to the blockchain with
    */
-  async sendBEL(data: SendBEL): Promise<string> {
-    return await keyringService.sendBEL(data);
+  async SendBEL(data: SendBEL): Promise<string> {
+    return await keyringService.SendBEL(data);
   }
 
   async sendOrd(data: Omit<SendOrd, "amount">): Promise<string> {
