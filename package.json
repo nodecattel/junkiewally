@@ -44,6 +44,7 @@
     "i18next": "23.12.2",
     "immer": "^10.1.1",
     "junkcoinjs-lib": "^0.0.2",
+    "junkcoinpair": "^0.0.2",
     "koa-compose": "4.1.0",
     "nintondo-bip39": "^1.0.0",
     "nintondo-browser-passworder": "^0.0.1",

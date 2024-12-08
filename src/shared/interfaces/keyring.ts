@@ -1,5 +1,5 @@
 import type bitcoin from "junkcoinjs-lib";
-import type { ECPairInterface } from "belpair";
+import type { ECPairInterface } from "junkcoinpair";
 
 interface DeserializeOption {
   hdPath?: string;
