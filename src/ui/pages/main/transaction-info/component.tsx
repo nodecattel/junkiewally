@@ -11,7 +11,7 @@ import { shortAddress } from "@/shared/utils/transactions";
 import toast from "react-hot-toast";
 import { t } from "i18next";
 import { useGetCurrentAccount } from "@/ui/states/walletState";
-import { JUNKCOIN_URL } from "@/shared/constant";
+import { EXPLORER_URL } from "@/shared/constant";
 import { useControllersState } from "@/ui/states/controllerState";
 import { ss } from "@/ui/utils";
 import { useTransactionManagerContext } from "@/ui/utils/tx-ctx";
@@ -31,7 +31,7 @@ const TransactionInfo = () => {
 
   const onOpenExplorer = async () => {
     await browserTabsCreate({
-      url: `${JUNKCOIN_URL}/explorer/tx/${txId}`,
+      url: `${EXPLORER_URL}/transaction/${txId}`,
       active: true,
     });
   };

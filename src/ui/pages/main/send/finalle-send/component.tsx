@@ -3,7 +3,7 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 
 import s from "./styles.module.scss";
 import { t } from "i18next";
-import { JUNKCOIN_URL } from "@/shared/constant";
+import { EXPLORER_URL } from "@/shared/constant";
 import { Link, useParams } from "react-router-dom";
 
 const FinalleSend = () => {
@@ -12,7 +12,7 @@ const FinalleSend = () => {
   const onClick = async () => {
     await browserTabsCreate({
       active: true,
-      url: `${JUNKCOIN_URL}/explorer/tx/${txId}`,
+      url: `${EXPLORER_URL}/transaction/${txId}`,
     });
   };
 

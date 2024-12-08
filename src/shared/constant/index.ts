@@ -54,8 +54,8 @@ const HISTORY_URL =
 export const getHistoryUrl = () => HISTORY_URL;
 
 export const DEFAULT_FEES = {
-  fast: 20000,
-  slow: 10000,
+  fast: 2,
+  slow: 1,
 };
 
 export const DEFAULT_SERVICE_FEE = 1_000_000;

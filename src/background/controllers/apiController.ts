@@ -27,8 +27,8 @@ export interface IApiController {
     address: string,
     txid: string
   ): Promise<ITransaction[] | undefined>;
-  getLKYPrice(): Promise<{ usd: number } | undefined>;
-  getLastBlockLKY(): Promise<number | undefined>;
+  getJKCPrice(): Promise<{ usd: number } | undefined>;
+  getLastBlockJKC(): Promise<number | undefined>;
   getAccountStats(address: string): Promise<IAccountStats | undefined>;
   getTokens(address: string): Promise<IToken[] | undefined>;
   getTransactionHex(txid: string): Promise<string | undefined>;
@@ -73,11 +73,7 @@ class ApiController implements IApiController {
   ): Promise<ApiUTXO[] | undefined> {
     let res;
 
-    if (amount) {
-      res = await fetch(`${API_URL}/address/${address}/fetch-utxos/${amount}`);
-    } else {
-      res = await fetch(`${API_URL}/address/${address}/utxo`);
-    }
+    res = await fetch(`${API_URL}/address/${address}/utxo`);
 
     if (!res.ok) return undefined;
 
@@ -150,7 +146,7 @@ class ApiController implements IApiController {
     }
   }
 
-  async getLastBlockLKY() {
+  async getLastBlockJKC() {
     const res = await fetch(`${API_URL}/blocks/tip/height`);
 
     if (!res.ok) {
@@ -160,7 +156,7 @@ class ApiController implements IApiController {
     return Number(await res.text());
   }
 
-  async getLKYPrice() {
+  async getJKCPrice() {
     const res = await fetch(`https://luckyscan.org/api/v1/prices`);
 
     if (!res.ok) {

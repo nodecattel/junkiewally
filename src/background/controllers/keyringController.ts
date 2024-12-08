@@ -21,7 +21,7 @@ export interface IKeyringController {
     from: string;
     data: string;
   }): Promise<string>;
-  SendBEL(data: SendBEL): Promise<string>;
+  sendBEL(data: SendBEL): Promise<string>;
   sendOrd(data: Omit<SendOrd, "amount">): Promise<string>;
   changeAddressType(
     walletIndex: number,
@@ -108,7 +108,7 @@ class KeyringController implements IKeyringController {
    * @param {SendBEL} data Input data for the transaction
    * @returns {Promise<string>} Hex of transaction to push transaction to the blockchain with
    */
-  async SendBEL(data: SendBEL): Promise<string> {
+  async sendBEL(data: SendBEL): Promise<string> {
     return await keyringService.SendBEL(data);
   }
 

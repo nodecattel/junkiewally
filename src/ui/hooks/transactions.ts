@@ -1,7 +1,7 @@
 import { useGetCurrentAccount, useWalletState } from "../states/walletState";
 import { useControllersState } from "../states/controllerState";
 import { satoshisToAmount } from "@/shared/utils/transactions";
-import { Psbt, Transaction } from "junkcoinjs-lib";
+import { Psbt, Transaction } from "belcoinjs-lib";
 import type { Hex } from "@/background/services/keyring/types";
 import { t } from "i18next";
 import { Inscription, OrdUTXO } from "@/shared/interfaces/inscriptions";
@@ -78,7 +78,7 @@ export function useCreateJKCTxCallback() {
       );
     }
 
-    const psbtHex = await keyringController.SendBEL({
+    const psbtHex = await keyringController.sendBEL({
       to: toAddress,
       amount: toAmount,
       utxos,
