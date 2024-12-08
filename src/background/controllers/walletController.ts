@@ -12,7 +12,6 @@ import { excludeKeysFromObj } from "@/shared/utils";
 import * as bip39 from "nintondo-bip39";
 import { AddressType, HDPrivateKey } from "bellhdw";
 import { Network } from "junkcoinjs-lib";
-import { isTestnet } from "@/ui/utils";
 
 class WalletController implements IWalletController {
   async isVaultEmpty() {
@@ -137,9 +136,6 @@ class WalletController implements IWalletController {
 
     await storageService.updateAppState({ network });
     await storageService.updateWalletState({ wallets: updatedWallets });
-    sessionService.broadcastEvent("networkChanged", {
-      network: isTestnet(network) ? "testnet" : "mainnet",
-    });
   }
 }
 

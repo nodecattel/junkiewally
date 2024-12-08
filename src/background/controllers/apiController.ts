@@ -1,3 +1,5 @@
+import { API_URL } from "@/shared/constant";
+
 import type {
   ApiUTXO,
   IAccountStats,
@@ -10,8 +12,6 @@ import {
 } from "@/shared/interfaces/inscriptions";
 import { IToken } from "@/shared/interfaces/token";
 import { customFetch, fetchProps } from "@/shared/utils";
-import { storageService } from "../services";
-import { DEFAULT_FEES } from "@/shared/constant";
 import { isValidTXID } from "@/ui/utils";
 
 export interface UtxoQueryParams {
@@ -20,19 +20,15 @@ export interface UtxoQueryParams {
 }
 
 export interface IApiController {
-  getUtxos(
-    address: string,
-    params?: UtxoQueryParams
-  ): Promise<ApiUTXO[] | undefined>;
-  pushTx(rawTx: string): Promise<{ txid?: string; error?: string }>;
+  getUtxos(address: string, amount?: number): Promise<ApiUTXO[] | undefined>;
+  pushTx(rawTx: string): Promise<string>;
   getTransactions(address: string): Promise<ITransaction[] | undefined>;
   getPaginatedTransactions(
     address: string,
     txid: string
   ): Promise<ITransaction[] | undefined>;
-  getJKCPrice(): Promise<{ junkcoin?: { usd: number } } | undefined>;
-  getLastBlockJKC(): Promise<number | undefined>;
-  getFees(): Promise<{ fast: number; slow: number } | undefined>;
+  getLKYPrice(): Promise<{ usd: number } | undefined>;
+  getLastBlockLKY(): Promise<number | undefined>;
   getAccountStats(address: string): Promise<IAccountStats | undefined>;
   getTokens(address: string): Promise<IToken[] | undefined>;
   getTransactionHex(txid: string): Promise<string | undefined>;
@@ -58,74 +54,86 @@ export interface IApiController {
   }): Promise<FindInscriptionsByOutpointResponseItem[] | undefined>;
 }
 
-type FetchType = <T>(
-  props: Omit<fetchProps, "network">
-) => Promise<T | undefined>;
+type FetchType = <T>(props: fetchProps) => Promise<T | undefined>;
 
 class ApiController implements IApiController {
-  private fetch: FetchType = async (p: Omit<fetchProps, "network">) => {
+  private fetch: FetchType = async (p) => {
     try {
       return await customFetch({
         ...p,
-        network: storageService.appState.network,
       });
     } catch {
       return;
     }
   };
 
-  async getUtxos(address: string, params?: UtxoQueryParams) {
-    const data = await this.fetch<ApiUTXO[]>({
-      path: `/address/${address}/utxo`,
-      params: params as Record<string, string>,
-      service: "electrs",
-    });
-    if (Array.isArray(data)) {
-      return data;
+  async getUtxos(
+    address: string,
+    amount?: number
+  ): Promise<ApiUTXO[] | undefined> {
+    let res;
+
+    if (amount) {
+      res = await fetch(`${API_URL}/address/${address}/fetch-utxos/${amount}`);
+    } else {
+      res = await fetch(`${API_URL}/address/${address}/utxo`);
     }
+
+    if (!res.ok) return undefined;
+
+    const utxos = await res.json();
+    if (!utxos || !Array.isArray(utxos)) return undefined;
+
+    const utxosWithHex: ApiUTXO[] = await Promise.all(
+      utxos.map(async (utxo) => {
+        return {
+          txid: utxo.txid,
+          vout: utxo.vout,
+          status: utxo.status,
+          value: utxo.value,
+          hex: utxo.raw,
+        };
+      })
+    );
+
+    return utxosWithHex;
   }
 
-  async getFees() {
-    const data = await this.fetch<Record<string, number>>({
-      path: "/fee-estimates",
-      service: "electrs",
-    });
-    if (data) {
-      return {
-        slow: "6" in data ? Number(data["6"].toFixed(0)) : DEFAULT_FEES.slow,
-        fast:
-          "2" in data ? Number(data["2"].toFixed(0)) + 1 : DEFAULT_FEES.fast,
-      };
-    }
-  }
-
-  async pushTx(rawTx: string) {
-    const data = await this.fetch<string>({
-      path: "/tx",
+  async pushTx(txHex: string) {
+    const res = await fetch(`${API_URL}/tx`, {
       method: "POST",
       headers: {
         "content-type": "text/plain",
       },
-      json: false,
-      body: rawTx,
-      service: "electrs",
+      body: txHex,
     });
-    if (isValidTXID(data) && data) {
-      return {
-        txid: data,
-      };
+
+    if (!res.ok) {
+      console.error("Failed to push transaction:", res);
+      return "";
+    }
+
+    const data = await res.text();
+
+    if (data && isValidTXID(data)) {
+      return data;
     } else {
-      return {
-        error: data,
-      };
+      console.error("Failed to push transaction:", data);
+      return "";
     }
   }
 
   async getTransactions(address: string): Promise<ITransaction[] | undefined> {
-    return await this.fetch<ITransaction[]>({
-      path: `/address/${address}/txs`,
-      service: "electrs",
-    });
+    try {
+      const res = await fetch(`${API_URL}/address/${address}/txs`);
+
+      if (!res.ok) return undefined;
+
+      return (await res.json()) as ITransaction[];
+    } catch (error) {
+      console.error("Error fetching transactions:", error);
+      return undefined;
+    }
   }
 
   async getPaginatedTransactions(
@@ -135,44 +143,67 @@ class ApiController implements IApiController {
     try {
       return await this.fetch<ITransaction[]>({
         path: `/address/${address}/txs/chain/${txid}`,
-        service: "electrs",
+        service: "content",
       });
     } catch (e) {
       return undefined;
     }
   }
 
-  async getLastBlockJKC() {
-    const data = await this.fetch<string>({
-      path: "/blocks/tip/height",
-      service: "electrs",
-    });
-    if (data) {
-      return Number(data);
-    }
-  }
+  async getLastBlockLKY() {
+    const res = await fetch(`${API_URL}/blocks/tip/height`);
 
-  async getJKCPrice() {
-    const data = await this.fetch<{ price_usd: number }>({
-      path: "/last-price",
-      service: "electrs",
-    });
-    if (!data) {
+    if (!res.ok) {
       return undefined;
     }
+
+    return Number(await res.text());
+  }
+
+  async getLKYPrice() {
+    const res = await fetch(`https://luckyscan.org/api/v1/prices`);
+
+    if (!res.ok) {
+      return undefined;
+    }
+
+    const data = (await res.json()) as {
+      USD: number;
+    };
+
     return {
-      junkcoin: {
-        usd: data.price_usd,
-      },
+      usd: data.USD,
     };
   }
 
   async getAccountStats(address: string): Promise<IAccountStats | undefined> {
     try {
-      return await this.fetch({
-        path: `/address/${address}/stats`,
-        service: "electrs",
-      });
+      const res = await fetch(`${API_URL}/address/${address}`);
+
+      if (!res.ok) throw new Error("Failed to fetch account stats");
+
+      const data = (await res.json()) as {
+        address: string;
+        chain_stats: {
+          funded_txo_count: number;
+          funded_txo_sum: number;
+          spent_txo_count: number;
+          spent_txo_sum: number;
+          tx_count: number;
+        };
+      };
+
+      if (!data.chain_stats) {
+        return { amount: 0, count: 0, balance: 0 };
+      }
+
+      return {
+        amount: 0, // TODO: implement
+        count: 0, // TODO: implement
+        balance:
+          (data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum) /
+          1e8,
+      };
     } catch {
       return { amount: 0, count: 0, balance: 0 };
     }
@@ -181,14 +212,14 @@ class ApiController implements IApiController {
   async getTokens(address: string): Promise<IToken[] | undefined> {
     return await this.fetch<IToken[]>({
       path: `/address/${address}/tokens`,
-      service: "electrs",
+      service: "content",
     });
   }
 
   async getTransaction(txid: string) {
     return await this.fetch<ITransaction>({
       path: "/tx/" + txid,
-      service: "electrs",
+      service: "content",
     });
   }
 
@@ -196,7 +227,7 @@ class ApiController implements IApiController {
     return await this.fetch<string>({
       path: "/tx/" + txid + "/hex",
       json: false,
-      service: "electrs",
+      service: "content",
     });
   }
 
@@ -205,7 +236,7 @@ class ApiController implements IApiController {
       path: "/prev",
       body: JSON.stringify({ locations: outpoints }),
       method: "POST",
-      service: "electrs",
+      service: "content",
     });
     return result?.values;
   }
@@ -237,7 +268,7 @@ class ApiController implements IApiController {
   async getLocationByInscriptionId(inscriptionId: string) {
     return await this.fetch<{ location: string; owner: string }>({
       path: `/location/${inscriptionId}`,
-      service: "electrs",
+      service: "content",
     });
   }
 
@@ -247,7 +278,7 @@ class ApiController implements IApiController {
   }) {
     return await this.fetch<FindInscriptionsByOutpointResponseItem[]>({
       path: `/find_meta/${data.outpoint}?address=${data.address}`,
-      service: "electrs",
+      service: "content",
     });
   }
 }

@@ -1,4 +1,3 @@
-import { isTestnet } from "@/ui/utils";
 import { Network, networks } from "junkcoinjs-lib";
 import { AddressType } from "bellhdw/src/hd/types";
 
@@ -13,11 +12,6 @@ export const IS_CHROME = /Chrome\//i.test(navigator.userAgent);
 export const IS_LINUX = /linux/i.test(navigator.userAgent);
 
 export const IS_WINDOWS = /windows/i.test(navigator.userAgent);
-
-export const NETOWRKS: { name: string; network: Network }[] = [
-  { name: "MAINNET", network: networks.junkcoin },
-  { name: "TESTNET", network: networks.testnet },
-];
 
 export const ADDRESS_TYPES: {
   value: AddressType;

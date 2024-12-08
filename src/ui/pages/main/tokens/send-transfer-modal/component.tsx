@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 import { useSendTransferTokens } from "@/ui/hooks/transactions";
 import { nFormatter } from "../../../../utils/formatter";
 import Switch from "@/ui/components/switch";
-import { getAddressType, ss } from "@/ui/utils";
+import { ss } from "@/ui/utils";
 import { useAppState } from "@/ui/states/appState";
 
 interface Props {
@@ -47,9 +47,6 @@ const SendTransferModal: FC<Props> = ({
   const send = async ({ address, txIds: transfers, feeRate }: FormType) => {
     try {
       setLoading(true);
-      if (typeof getAddressType(address, network) === "undefined") {
-        return toast.error(t("send.create_send.address_error"));
-      }
       if (typeof feeRate !== "number" || !feeRate || feeRate % 1 !== 0) {
         return toast.error(t("send.create_send.fee_is_text_error"));
       }

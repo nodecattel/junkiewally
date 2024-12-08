@@ -1,6 +1,5 @@
-import { Network } from "junkcoinjs-lib";
+import { getContentUrl, getHistoryUrl } from "../constant";
 import browser from "./browser";
-import { getApiUrl, getContentUrl, getHistoryUrl } from "../constant";
 
 export const t = (name: string) => browser.i18n.getMessage(name);
 
@@ -15,29 +14,25 @@ export interface fetchProps extends RequestInit {
   params?: Record<string, string>;
   error?: boolean;
   json?: boolean;
-  network: Network;
   service: "electrs" | "content" | "history";
 }
 
-const getBaseUrl = (service: fetchProps["service"], testnet: Network) => {
+const getBaseUrl = (service: fetchProps["service"]) => {
   switch (service) {
-    case "electrs":
-      return getApiUrl(testnet);
     case "content":
-      return getContentUrl(testnet);
+      return getContentUrl();
     case "history":
-      return getHistoryUrl(testnet);
+      return getHistoryUrl();
   }
 };
 
 export const customFetch = async <T>({
   path,
   json = true,
-  network,
   service,
   ...props
 }: fetchProps): Promise<T | undefined> => {
-  const url = `${getBaseUrl(service, network)}${path}`;
+  const url = `${getBaseUrl(service)}${path}`;
   const params = props.params
     ? Object.entries(props.params)
         .map((k) => `${k[0]}=${k[1]}`)
@@ -85,10 +80,14 @@ export const parseLocation = (
   vout: number;
   offset: number;
 } => {
-  const [txid, vout, offset] = location.split("i");
+  const parts = location.split("i");
+  const offset = parts[parts.length - 1];
+  parts.pop();
 
+  const vout = parts[parts.length - 1];
+  parts.pop();
   return {
-    txid,
+    txid: parts.join(""),
     vout: Number(vout),
     offset: Number(offset),
   };

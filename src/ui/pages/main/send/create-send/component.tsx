@@ -17,7 +17,7 @@ import FeeInput from "./fee-input";
 import Switch from "@/ui/components/switch";
 import AddressBookModal from "./address-book-modal";
 import AddressInput from "./address-input";
-import { getAddressType, normalizeAmount, ss } from "@/ui/utils";
+import { normalizeAmount, ss } from "@/ui/utils";
 import { t } from "i18next";
 import { Inscription } from "@/shared/interfaces/inscriptions";
 import { useGetCurrentAccount } from "@/ui/states/walletState";
@@ -66,10 +66,6 @@ const CreateSend = () => {
       setLoading(true);
       const balance = currentAccount?.balance ?? 0;
       const amount = parseFloat(amountStr);
-
-      if (typeof getAddressType(address, network) === "undefined") {
-        return toast.error(t("send.create_send.address_error"));
-      }
 
       if ((Number.isNaN(amount) || amount < 1e-5) && !inscriptionTransaction) {
         return toast.error(t("send.create_send.minimum_amount_error"));
