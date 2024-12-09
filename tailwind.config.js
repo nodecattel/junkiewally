@@ -25,7 +25,19 @@ module.exports = {
         panel: "#669bbc",
         hovered: "#a8d0db",
         "hovered-btn": "#fd9343",
-        "light-orange": "#ff863a"
+        "light-orange": "#ff863a",
+
+        background: "#0A0E14",
+        "primary-dark": "#CC5500",
+        surface: "#2A2E35",
+        "primary-80": "rgba(255, 107, 0, 0.8)",
+        "primary-60": "rgba(255, 107, 0, 0.6)",
+        "primary-40": "rgba(255, 107, 0, 0.4)",
+        "primary-20": "rgba(255, 107, 0, 0.2)",
+        "text-primary": "#FFFFFF",
+        "text-secondary": "rgba(255, 255, 255, 0.7)",
+        border: "rgba(255, 107, 0, 0.3)",
+        overlay: "rgba(10, 14, 20, 0.8)",
       },
       screens: {
         "standard": "455px",
