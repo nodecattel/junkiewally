@@ -91,8 +91,8 @@ export const useCreateNewAccount = () => {
       throw new Error("Internal error: failed to find selected account");
 
     let newWallets = produce(wallets, (draft) => {
-      draft[selectedWallet].accounts.push(createdAccount);
-      draft[selectedWallet].accounts = draft[selectedWallet].accounts.map(
+      draft[0].accounts.push(createdAccount);
+      draft[0].accounts = draft[0].accounts.map(
         (i, idx) => ({ ...i, id: idx })
       );
     });

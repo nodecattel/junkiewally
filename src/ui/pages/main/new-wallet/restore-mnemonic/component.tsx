@@ -19,19 +19,8 @@ const selectOptions = [
     label: "Default",
     value: DEFAULT_HD_PATH,
     lecacyDerivation: false,
-    passphrase: "junk",
-  },
-  {
-    label: "Ordinals",
-    value: "m/44'/3'/0'/0/0",
-    lecacyDerivation: true,
-    isLegacySwitchLocked: true,
     passphrase: "",
-  },
-  {
-    label: "Custom",
-    value: "",
-  },
+  }
 ];
 
 const RestoreMnemonic = () => {
