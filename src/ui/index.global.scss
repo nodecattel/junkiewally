@@ -16,6 +16,27 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Gantari";
+  src: url("fonts/Gantari-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GantariItalic";
+  src: url("fonts/Gantari-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "PirataOne";
+  src: url("fonts/PirataOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   @apply m-0 p-0 outline-none;
 
@@ -30,7 +51,7 @@ html {
 body {
   @apply mx-auto bg-bg text-text standard:max-w-2xl standard:py-6 min-w-[350px] min-h-[600px];
 
-  font-family: "Montserrat", sans-serif;
+  font-family: "Gantari", sans-serif;
 }
 
 body.lock {
@@ -157,4 +178,12 @@ input[type="number"] {
 
 .input-span {
   @apply uppercase text-gray-400 my-1;
+}
+
+.pirate {
+  font-family: "PirataOne";
+}
+
+.junkscription {
+  font-size: 2rem;
 }

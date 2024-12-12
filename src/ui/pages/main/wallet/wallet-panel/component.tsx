@@ -61,7 +61,8 @@ const WalletPanel = () => {
           to={"/pages/inscriptions"}
           className="cursor-pointer flex items-center justify-center"
         >
-          <img src="/nft.png" alt="nft" className={cn("w-12", s.nftImage)} />
+          <div className="w-12 pirate junkscription">Junk</div>
+          {/* <img src="/nft.png" alt="nft" className={cn("w-12", s.nftImage)} /> */}
         </Link>
         <div className="w-[1px] bg-white bg-opacity-25 h-5" />
         <Link to={"/pages/settings"} className="cursor-pointer">
