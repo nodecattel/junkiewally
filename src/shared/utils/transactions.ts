@@ -1,6 +1,6 @@
 import type { ITransaction } from "@/shared/interfaces/api";
 import { payments } from "junkcoinjs-lib";
-import { AddressType } from "bellhdw/src/hd/types";
+import { AddressType } from "junkcoinhdw/src/hd/types";
 
 export const getTransactionValue = (
   transaction: ITransaction,

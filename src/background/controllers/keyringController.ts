@@ -2,7 +2,7 @@ import { Network, Psbt } from "junkcoinjs-lib";
 import { keyringService } from "../services";
 import type { Hex, SendBEL, SendOrd } from "../services/keyring/types";
 import type { IPrivateWallet } from "@/shared/interfaces";
-import type { AddressType } from "bellhdw";
+import type { AddressType } from "junkcoinhdw";
 import { OrdUTXO } from "@/shared/interfaces/inscriptions";
 import { ApiUTXO } from "@/shared/interfaces/api";
 

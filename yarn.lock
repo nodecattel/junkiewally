@@ -3083,6 +3083,42 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+luckycoinhdw@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/luckycoinhdw/-/luckycoinhdw-0.0.2.tgz#bf3789f023beda8a355c7670d98800692c3c04cb"
+  integrity sha512-ciQTvPRE73aiwTGbJnKF4S3KaiVSdgqMdmm7RbYHkIpDHef0iotif3gukaE9hJ63HTFXz2d9T4TJ7VebV6xEGQ==
+  dependencies:
+    "@noble/hashes" "1.3.3"
+    bells-secp256k1 "0.1.1"
+    bn.js "5.2.1"
+    browser-hdkey "0.1.9"
+    luckycoinjs-lib "^0.0.2"
+    luckycoinpair "^0.0.2"
+    nintondo-bip39 "1.0.0"
+
+luckycoinjs-lib@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/luckycoinjs-lib/-/luckycoinjs-lib-0.0.2.tgz#36d1a41c137af832bd47881a572fe88d6da5df30"
+  integrity sha512-AL5hJ8PwYr1E7sJCsCY/m2sOY/qLYTvK7iPeSW122ePYNuMRmUQu0e/zPEmEogHPvZ3LA5P7zKwPRqjb5ZOiWw==
+  dependencies:
+    "@noble/hashes" "1.3.3"
+    bech32 "2.0.0"
+    bells-secp256k1 "0.1.1"
+    bip174 "2.1.1"
+    bs58check "3.0.1"
+    typeforce "1.18.0"
+    varuint-bitcoin "1.1.2"
+
+luckycoinpair@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/luckycoinpair/-/luckycoinpair-0.0.2.tgz#fbb2c4c766136c018efbbaa1b74269268561bc56"
+  integrity sha512-FS5DeHJD9T5kFhWUEdntAKG5ccxgKd/hKfFNsSRv6djbPrMzM7R3iOBLwFvn3v/E/FjNphXkCr/o25cOtfOwVw==
+  dependencies:
+    "@noble/hashes" "1.3.3"
+    luckycoinjs-lib "^0.0.2"
+    typeforce "1.18.0"
+    wif "4.0.0"
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"

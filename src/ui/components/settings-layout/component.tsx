@@ -23,7 +23,7 @@ const SettingsLayout: FC<SettingsLayoutProps> = ({ children }) => {
             });
           }}
         >
-          Nintondo team
+          Junkcoin team
         </a>
       </div>
     </div>

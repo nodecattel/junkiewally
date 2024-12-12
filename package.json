@@ -1,6 +1,6 @@
 {
-  "name": "nintondo-extension",
-  "version": "0.2.9",
+  "name": "junkcoin-wallet-extension",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "bun build.ts --watch",
@@ -35,7 +35,6 @@
     "@heroicons/react": "2.1.5",
     "@noble/hashes": "1.4.0",
     "bel-ord-utils": "^0.2.11",
-    "bellhdw": "^0.5.43",
     "bells-inscriber": "^0.2.8",
     "classnames": "2.5.1",
     "dayjs": "^1.11.13",
@@ -43,6 +42,7 @@
     "events": "^3.3.0",
     "i18next": "23.12.2",
     "immer": "^10.1.1",
+    "junkcoinhdw": "*",
     "junkcoinjs-lib": "^0.0.2",
     "junkcoinpair": "^0.0.2",
     "koa-compose": "4.1.0",

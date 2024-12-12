@@ -66,10 +66,8 @@ const RestoreMnemonic = () => {
         payload: mnemonicPhrase.join(" "),
         walletType: "root",
         addressType,
-        hideRoot: !showRootAcc,
+        hideRoot: true,
         network,
-        hdPath,
-        passphrase,
       });
       navigate("/home");
     } catch (e) {

@@ -10,7 +10,7 @@ import type {
 import keyringService from "@/background/services/keyring";
 import { excludeKeysFromObj } from "@/shared/utils";
 import * as bip39 from "nintondo-bip39";
-import { AddressType, HDPrivateKey } from "bellhdw";
+import { AddressType, HDPrivateKey } from "junkcoinhdw";
 import { Network } from "junkcoinjs-lib";
 
 class WalletController implements IWalletController {

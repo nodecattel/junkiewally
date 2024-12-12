@@ -1,5 +1,5 @@
 import { Network, networks } from "junkcoinjs-lib";
-import { AddressType } from "bellhdw/src/hd/types";
+import { AddressType } from "junkcoinhdw/src/hd/types";
 
 export const KEYRING_TYPE = {
   HdKeyring: "HD Key Tree",
