@@ -23,7 +23,7 @@
 
   &Icon {
     &Container {
-      @apply rounded-full bg-gradient-to-b from-junk-orange to-junk-red;
+      @apply rounded-full bg-gradient-to-b from-green-500/75 to-emerald-600/75;
     }
 
     @apply w-28 h-28 text-bg p-3;
