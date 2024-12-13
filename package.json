@@ -1,7 +1,38 @@
 {
-  "name": "junkcoin-wallet-extension",
+  "name": "junkiewally",
   "version": "0.0.1",
-  "private": true,
+  "description": "First Web3 wallet for Junkcoin blockchain, enabling JKC management and junkinals interaction",
+  "private": false,
+  "author": {
+    "name": "NodeCattel",
+    "url": "https://github.com/nodecattel"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/nodecattel/junkiewally",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodecattel/junkiewally.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nodecattel/junkiewally/issues"
+  },
+  "keywords": [
+    "junkcoin",
+    "junkinals",
+    "jkc",
+    "web3",
+    "cryptocurrency",
+    "wallet",
+    "browser-extension",
+    "chrome-extension",
+    "firefox-addon",
+    "blockchain"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
+  },
+  "type": "module",
   "scripts": {
     "dev": "bun build.ts --watch",
     "fire": "bun build.ts --watch --firefox",
@@ -10,7 +41,10 @@
     "both": "rm -rf dist && bun build.ts --firefox && bun build.ts",
     "release": "rm -rf dist && bun build.ts --firefox -c && bun build.ts -c",
     "sourcemap": "bun build.ts --sourcemap",
-    "test": "bun build.ts --watch --no-interaction"
+    "test": "bun build.ts --watch --no-interaction",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -88,11 +122,23 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "globals": "^15.12.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "postcss-modules": "^6.0.0",
+    "prettier": "^3.2.5",
     "sass": "^1.69.7",
     "sass-loader": "^16.0.0",
     "svgo": "^3.2.0",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.5.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }

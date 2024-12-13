@@ -1,72 +1,95 @@
-# Junkcoin Wallet
+# JunkieWally ⛵️
 
-Junkcoin Wallet for Bells - A New Horizon for Your Crypto Adventures!
+The first Web3 wallet for the Junkcoin ($JKC) blockchain - Your secure gateway to the JKC ecosystem.
 
-🌿 Version 0.2.2 - Bringing the Charm of Animal Crossing to Cryptocurrency
+## 🎯 Overview
 
-## 🍃 Welcome to Junkcoin Wallet! 🍃
+JunkieWally is a comprehensive browser extension wallet designed specifically for Junkcoin ($JKC). Built with security and usability in mind, it provides essential tools for managing your digital assets on the Junkcoin blockchain.
 
-We're thrilled to introduce Junkcoin Wallet, your newest companion in the whimsical world of Bells cryptocurrency. Inspired by the beloved universe of Animal Crossing, our wallet is more than just a tool; it's a delightful journey into the heart of a community where fun meets finance.
+## 🙏 Credits
 
-## 🌸 Key Features:
+JunkieWally is proudly built upon the foundation of [Nintondo Extension](https://github.com/Nintondo/extension). Special thanks to the Nintondo developers for their excellent work which made this wallet possible.
 
-- Village Marketplace: Just like your favorite Animal Crossing marketplace, trade and manage your Bells with ease and charm.
-- Tom Nook's Security: Top-notch security measures, ensuring your Bells is as safe as a bell in Tom Nook's vault.
-- Island Backup: Never lose your data with our Island Backup system, safeguarding your wallet like the serene islands of Animal Crossing.
-- Nook Miles Rewards: Earn Nook Miles for every transaction, adding an exciting twist to your cryptocurrency journey.
-- Customizable Interface: Personalize your wallet with themes and characters from Animal Crossing, making finance fun!
+## ✨ Features
 
-## 🍂 What's New in 0.2.2:
+- 💎 Secure $JKC Management 
+- 🌐 Complete Web3 Wallet Functionality
+- 🔗 Built-in Network Integration
+- 🛡️ Enhanced Security Protocols
+- 🎨 Intuitive User Interface
 
-- Launch of Junkcoin Wallet: A fresh start with a familiar feel for all Bells enthusiasts and Animal Crossing fans.
-- Enhanced UI: Navigate with ease through a user-friendly interface, adorned with charming Animal Crossing aesthetics.
-- Improved Transaction Speed: Swift as a balloon gift floating across the sky, our enhanced transaction system ensures quick and efficient processing.
-- Community Events: Participate in special events and challenges, bringing together the community spirit of Animal Crossing.
+## 🚀 Coming Soon
 
-## 🌟 Join Our Community:
+- 📜 Junkinals Support (awaiting official inscription indexing)
+- ⚡️ Advanced Inscription Management
+- 🔌 Expanded DApp Integration
+- 🔐 Enhanced Security Features
 
-Step into a world where your financial journey is intertwined with the charm and simplicity of Animal Crossing. Join our community, share tips, and make new friends, all while managing your Bells cryptocurrency. Let's create a community as heartwarming and supportive as the townsfolk of Animal Crossing!
+## 🔗 Useful Links
 
-## 📥 Download Now:
+- 🔍 Block Explorer: [junkpool.blockraid.io](https://junkpool.blockraid.io)
+- 🌐 Website: [junk-coin.com](https://junk-coin.com)
+- 💬 Telegram: [junkcoin_JKC](https://t.me/junkcoin_JKC)
+- 🐦 Twitter: [@junkcoin_JKC](https://x.com/junkcoin_JKC)
 
-Ready to embark on this enchanting crypto adventure? Download Junkcoin Wallet for Bells and turn your cryptocurrency experience into an idyllic escapade. Let's make our financial journey not just profitable, but also delightful!
+## 🛠️ Installation
 
-*Note: Junkcoin Wallet is not affiliated with Nintendo or the Animal Crossing franchise. Bells is a meme cryptocurrency and should be enjoyed as part of a balanced financial portfolio.*
+### Prerequisites
 
-Happy Junk Hunting! 🛎️
-
-
-## Testing
-
-##### Install bun.sh:
-
+Install bun.sh:
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
 
-##### Install dependencies:
+Install dependencies:
 ```bash
 bun i
 ```
 
-#### Chrome
+### 🔧 Browser Extension Setup
 
-1. Build extension using command
-```
+#### Chrome
+```bash
+# Build extension
 bun chrome
+
+# Installation steps:
+1. Open Chrome Extensions (chrome://extensions/)
+2. Enable "Developer mode"
+3. Click "Load unpacked"
+4. Select the `dist/chrome` folder
 ```
-2. Go to extensions in your browser and click on "Manage Extensions"
-3. In top right corner activate "developer mode"
-4. In top left corner click on  "Load unpacked"
-5. Select `dist/chrome` folder from the project folder
 
 #### Firefox
-
-1. Build extension using command
-```
+```bash
+# Build extension
 bun firefox
-```
-2. Go to `about:debugging#/runtime/this-firefox`
-3. Click on the button "Load temporary Add-on..."
-4. Select `dist/firefox` folder from the project folder
 
+# Installation steps:
+1. Go to about:debugging#/runtime/this-firefox
+2. Click "Load Temporary Add-on"
+3. Select any file from `dist/firefox` folder
+```
+
+## 💻 Development
+
+Development mode with hot reloading:
+```bash
+bun dev
+```
+
+Build for both browsers:
+```bash
+bun both
+```
+
+Create release builds:
+```bash
+bun release
+```
+
+## 🔒 Security Note
+
+Always ensure you're downloading JunkieWally from official sources and verify all connection endpoints.
+
+⛵️ JunkieWally - Secure, Simple, Reliable. 🌊
