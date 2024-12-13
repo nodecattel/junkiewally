@@ -61,6 +61,9 @@
 
 .noTransactions {
   @apply w-full h-full items-center flex justify-center py-16;
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .value {
