@@ -51,8 +51,9 @@
 .transactionsDiv {
   @apply h-full flex flex-col items-center overflow-y-auto mt-2;
   background-image: url('bg.png');
-  background-size: cover;
-  background-position: center;
+  background-size: 90%;
+  background-position: center -4rem;
+  background-repeat: no-repeat;
 }
 
 .transaction {
@@ -62,8 +63,9 @@
 .noTransactions {
   @apply w-full h-full items-center flex justify-center py-16;
   background-image: url('bg.png');
-  background-size: cover;
-  background-position: center;
+  background-size: 90%;
+  background-position: center -4rem;
+  background-repeat: no-repeat;
 }
 
 .value {

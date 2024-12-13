@@ -72,8 +72,8 @@ const useTransactionManager = (): TransactionManagerContextType | undefined => {
 
   const updatePrice = useCallback(async () => {
     const data = await apiController.getJKCPrice();
-    if (data?.junkcoin) {
-      setCurrentPrice(data.junkcoin.usd);
+    if (data?.usd) {
+      setCurrentPrice(data.usd);
     }
   }, [apiController]);
 

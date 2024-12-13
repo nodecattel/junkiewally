@@ -157,18 +157,19 @@ class ApiController implements IApiController {
   }
 
   async getJKCPrice() {
-    const res = await fetch(`https://luckyscan.org/api/v1/prices`);
-
+    const res = await fetch(`https://api.nonkyc.io/api/v2/ticker/JKC_USDT`);
+  
     if (!res.ok) {
+      console.error('Failed to fetch price:', res.status);
       return undefined;
     }
-
-    const data = (await res.json()) as {
-      USD: number;
-    };
-
+  
+    const data = await res.json();
+    console.log('API Response:', data);
+  
+    // Parse the last_price as a number to ensure consistent usage
     return {
-      usd: data.USD,
+      usd: data.last_price,
     };
   }
 

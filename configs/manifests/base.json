@@ -5,14 +5,18 @@
   "name": "Junkcoin Wallet",
   "icons": {
     "48": "/logo-48.png",
-    "128": "/logo-128.png"
+    "128": "/logo-128.png",
+    "512": "/logo-512.png",
+    "1024": "/logo-1024.png"
   },
   "action": {
     "default_popup": "index.html",
     "default_title": "Open the popup",
     "default_icon": {
       "48": "/logo-48.png",
-      "128": "/logo-128.png"
+      "128": "/logo-128.png",
+      "512": "/logo-512.png",
+      "1024": "/logo-1024.png"
     }
   },
   "side_panel": {
