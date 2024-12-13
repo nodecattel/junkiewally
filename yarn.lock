@@ -1229,7 +1229,7 @@ base-x@^5.0.0:
   resolved "https://registry.yarnpkg.com/base-x/-/base-x-5.0.0.tgz#6d835ceae379130e1a4cb846a70ac4746f28ea9b"
   integrity sha512-sMW3VGSX1QWVFA6l8U62MLKz29rRfpTlYdCqLdpLo1/Yd4zZwSbnUaDfciIAowAqvq7YFnWq9hrhdg1KYgc1lQ==
 
-base64-arraybuffer@1.0.2:
+base64-arraybuffer@1.0.2, base64-arraybuffer@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-1.0.2.tgz#1c37589a7c4b0746e34bd1feb951da2df01c1bdc"
   integrity sha512-I3yl4r9QB5ZRY3XuJVEPfc2XhZO6YweFPI+UovAzn+8/hb3oJ6lnysaFcjVpkCPfVWFUDvoZ8kmVDP7WyRtYtQ==
@@ -1274,19 +1274,6 @@ belcoinjs-lib@0.1.3, belcoinjs-lib@^0.1.3:
     typeforce "1.18.0"
     varuint-bitcoin "1.1.2"
 
-bellhdw@^0.5.43:
-  version "0.5.43"
-  resolved "https://registry.yarnpkg.com/bellhdw/-/bellhdw-0.5.43.tgz#e946da88211c041ff92b5908bcd44ea1c1aae445"
-  integrity sha512-vHbpmjITolPu9pEmdCQeF0MJkA2Vq0I6gCxaHSBmMCfUEOB5X8rSw2tEKmJxLflEfKBVzM7w6fcCylBPwgDjTA==
-  dependencies:
-    "@noble/hashes" "1.3.3"
-    belcoinjs-lib "0.1.3"
-    bells-secp256k1 "0.1.1"
-    belpair "0.1.4"
-    bn.js "5.2.1"
-    browser-hdkey "0.1.9"
-    nintondo-bip39 "1.0.0"
-
 bells-inscriber@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/bells-inscriber/-/bells-inscriber-0.2.8.tgz#915fe26aa4326fc86a9bcc64b7048247aea81496"
@@ -1301,16 +1288,6 @@ bells-secp256k1@0.1.1:
   integrity sha512-u152RVCD2iC5p9gAgq7IM8+9H8LRa2aGH5d491OBkpGxeRu5M7yc2xKJonJukRROgtE/Xi/wv38kCG9ipKJWZw==
   dependencies:
     base64-arraybuffer "1.0.2"
-
-belpair@0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/belpair/-/belpair-0.1.4.tgz#93a4fe586d9cc08031fa691279a3b10f8a0fb7de"
-  integrity sha512-wAbc8HdeuimpK8UsXwNB/IFUuEtZ2sjwslWXZjz+292oDaNrR1ay7jv0D1wb+xJEj23oLQnILfH6WULxS/DHLA==
-  dependencies:
-    "@noble/hashes" "1.3.3"
-    belcoinjs-lib "0.1.3"
-    typeforce "1.18.0"
-    wif "4.0.0"
 
 binary-extensions@^2.0.0:
   version "2.3.0"
@@ -2933,6 +2910,27 @@ jsonfile@^6.0.1:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
+junk-secp256k1@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/junk-secp256k1/-/junk-secp256k1-0.0.1.tgz#a235f30e167eb4e35f7c6658c167906dd07b4d08"
+  integrity sha512-3g4MLrwco+4cNO2K0N3rKT3ZQPOl5VnbAgEw1jQLDkMwwTPixIruPOXik7O7HPnDoGv/fGNWFoLEfjCP+tv5iA==
+  dependencies:
+    base64-arraybuffer "^1.0.2"
+    minimist "^1.2.8"
+
+junkcoinhdw@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/junkcoinhdw/-/junkcoinhdw-0.0.2.tgz#62b79d1f725760e2894bcd6b550a1e23028869e9"
+  integrity sha512-8RoPiP/aUwiHo+2YJtT2ttfcQhQLuLh3ALGcAsqMrhF4d7qizNovEvA6fZVIJGkznq7Sb7CSkFDmidlJZj+3NA==
+  dependencies:
+    "@noble/hashes" "1.3.3"
+    bn.js "5.2.1"
+    browser-hdkey "0.1.9"
+    junk-secp256k1 "^0.0.1"
+    junkcoinjs-lib "^0.0.3"
+    junkcoinpair "^0.0.2"
+    nintondo-bip39 "1.0.0"
+
 junkcoinjs-lib@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/junkcoinjs-lib/-/junkcoinjs-lib-0.0.1.tgz#3b82f392050827d4c544ced0001462e46fd8f62b"
@@ -2950,6 +2948,22 @@ junkcoinjs-lib@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/junkcoinjs-lib/-/junkcoinjs-lib-0.0.2.tgz#60e10ee935b26cb3eeea9e9229c62a4406e57e52"
   integrity sha512-XUmQFebb0CQU9YaD6FMMqhCamzfc3dHp1f7HYIpha3igSmk0wHnl/b+lF4QZYtdDtKhNpWQrvE3HXG8Zn+PByg==
+  dependencies:
+    "@noble/hashes" "1.3.3"
+    bech32 "2.0.0"
+    bells-secp256k1 "0.1.1"
+    bip174 "2.1.1"
+    bs58check "3.0.1"
+    ecpair "^3.0.0-rc.0"
+    junkcoinpair "^0.0.1"
+    tiny-secp256k1 "^2.2.3"
+    typeforce "1.18.0"
+    varuint-bitcoin "1.1.2"
+
+junkcoinjs-lib@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/junkcoinjs-lib/-/junkcoinjs-lib-0.0.3.tgz#34c46b0494cb8908464e1b69df68399bdd62f875"
+  integrity sha512-aOjPgxuOYPG82BgomuuOwSuJYwXdlY+FhWGRR8GVuoIoC3wY+gzGah+gDrmK56MHh6M4XQFOOeJxJe3k9dQsJA==
   dependencies:
     "@noble/hashes" "1.3.3"
     bech32 "2.0.0"
@@ -3083,42 +3097,6 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-luckycoinhdw@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/luckycoinhdw/-/luckycoinhdw-0.0.2.tgz#bf3789f023beda8a355c7670d98800692c3c04cb"
-  integrity sha512-ciQTvPRE73aiwTGbJnKF4S3KaiVSdgqMdmm7RbYHkIpDHef0iotif3gukaE9hJ63HTFXz2d9T4TJ7VebV6xEGQ==
-  dependencies:
-    "@noble/hashes" "1.3.3"
-    bells-secp256k1 "0.1.1"
-    bn.js "5.2.1"
-    browser-hdkey "0.1.9"
-    luckycoinjs-lib "^0.0.2"
-    luckycoinpair "^0.0.2"
-    nintondo-bip39 "1.0.0"
-
-luckycoinjs-lib@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/luckycoinjs-lib/-/luckycoinjs-lib-0.0.2.tgz#36d1a41c137af832bd47881a572fe88d6da5df30"
-  integrity sha512-AL5hJ8PwYr1E7sJCsCY/m2sOY/qLYTvK7iPeSW122ePYNuMRmUQu0e/zPEmEogHPvZ3LA5P7zKwPRqjb5ZOiWw==
-  dependencies:
-    "@noble/hashes" "1.3.3"
-    bech32 "2.0.0"
-    bells-secp256k1 "0.1.1"
-    bip174 "2.1.1"
-    bs58check "3.0.1"
-    typeforce "1.18.0"
-    varuint-bitcoin "1.1.2"
-
-luckycoinpair@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/luckycoinpair/-/luckycoinpair-0.0.2.tgz#fbb2c4c766136c018efbbaa1b74269268561bc56"
-  integrity sha512-FS5DeHJD9T5kFhWUEdntAKG5ccxgKd/hKfFNsSRv6djbPrMzM7R3iOBLwFvn3v/E/FjNphXkCr/o25cOtfOwVw==
-  dependencies:
-    "@noble/hashes" "1.3.3"
-    luckycoinjs-lib "^0.0.2"
-    typeforce "1.18.0"
-    wif "4.0.0"
-
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -3176,6 +3154,11 @@ minimatch@^9.0.4:
   integrity sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==
   dependencies:
     brace-expansion "^2.0.1"
+
+minimist@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
+  integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
 "minipass@^5.0.0 || ^6.0.2 || ^7.0.0", minipass@^7.1.2:
   version "7.1.2"

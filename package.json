@@ -42,7 +42,7 @@
     "events": "^3.3.0",
     "i18next": "23.12.2",
     "immer": "^10.1.1",
-    "junkcoinhdw": "*",
+    "junkcoinhdw": "^0.0.2",
     "junkcoinjs-lib": "^0.0.2",
     "junkcoinpair": "^0.0.2",
     "koa-compose": "4.1.0",
