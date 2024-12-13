@@ -28,11 +28,6 @@
     "firefox-addon",
     "blockchain"
   ],
-  "engines": {
-    "node": ">=18.0.0",
-    "bun": ">=1.0.0"
-  },
-  "type": "module",
   "scripts": {
     "dev": "bun build.ts --watch",
     "fire": "bun build.ts --watch --firefox",
@@ -41,10 +36,7 @@
     "both": "rm -rf dist && bun build.ts --firefox && bun build.ts",
     "release": "rm -rf dist && bun build.ts --firefox -c && bun build.ts -c",
     "sourcemap": "bun build.ts --sourcemap",
-    "test": "bun build.ts --watch --no-interaction",
-    "lint": "eslint . --ext .ts,.tsx",
-    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
-    "prepare": "husky install"
+    "test": "bun build.ts --watch --no-interaction"
   },
   "eslintConfig": {
     "extends": [
@@ -122,23 +114,11 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "globals": "^15.12.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
     "postcss-modules": "^6.0.0",
-    "prettier": "^3.2.5",
     "sass": "^1.69.7",
     "sass-loader": "^16.0.0",
     "svgo": "^3.2.0",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.5.4"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
-    ]
   }
 }
