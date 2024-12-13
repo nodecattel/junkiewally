@@ -89,6 +89,10 @@ input[type="number"] {
   &:disabled {
     @apply cursor-not-allowed opacity-50;
   }
+
+  &:hover {
+    @apply bg-hovered-btn text-white;
+  }
 }
 
 .bottom-btn {
@@ -186,4 +190,5 @@ input[type="number"] {
 
 .junkscription {
   font-size: 2rem;
+  color: theme('colors.junk-orange');
 }

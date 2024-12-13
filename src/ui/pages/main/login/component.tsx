@@ -63,7 +63,7 @@ const Login = () => {
         <div className="flex justify-center p-2 rounded-xl">
           <LogoIcon
             className={
-              "text-white w-14 h-14 hover:scale-110 duration-100 transition-transform"
+              "text-white w-40 h-40 hover:scale-110 duration-100 transition-transform"
             }
           />
         </div>

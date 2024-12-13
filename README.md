@@ -33,7 +33,7 @@ Ready to embark on this enchanting crypto adventure? Download Junkcoin Wallet fo
 
 *Note: Junkcoin Wallet is not affiliated with Nintendo or the Animal Crossing franchise. Bells is a meme cryptocurrency and should be enjoyed as part of a balanced financial portfolio.*
 
-Happy Bell Hunting! 🛎️
+Happy Junk Hunting! 🛎️
 
 
 ## Testing

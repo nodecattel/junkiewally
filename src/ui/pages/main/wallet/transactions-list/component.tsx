@@ -105,9 +105,9 @@ const TransactionList = () => {
                       className={cn(
                         "rounded-full size-9 text-bg flex items-center justify-center relative",
                         {
-                          "bg-gradient-to-r from-green-500/75 to-emerald-600/75":
+                          "bg-gradient-to-b from-green-500/75 to-emerald-600/75":
                             isConfirmed,
-                          "bg-gradient-to-r from-gray-500/75 to-gray-600/75":
+                          "bg-gradient-to-b from-gray-500/75 to-gray-600/75":
                             !isConfirmed,
                         }
                       )}

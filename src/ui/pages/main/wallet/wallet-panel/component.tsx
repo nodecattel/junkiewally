@@ -38,13 +38,17 @@ const WalletPanel = () => {
         className="flex gap-2 items-center select-none cursor-pointer"
         to={"/pages/switch-wallet"}
       >
-        <div
-          className="bg-gradient-to-br rounded-full size-7 flex items-center justify-center"
+        {/* <div
+          className="bg-gradient-to-b rounded-full size-7 flex items-center justify-center"
           style={{
             backgroundImage: generateGradient(
               currentAccount?.address ?? "account"
             ),
           }}
+        /> */}
+        <img
+          src="logo-48.png"
+          className="rounded-full size-7 flex items-center justify-center"
         />
         <div className="flex gap-2 items-center">
           <div className={s.change}>
