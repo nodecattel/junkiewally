@@ -1,4 +1,6 @@
 {
+  "version": "0.0.1",
+  "description": "First web3 wallet browser extension on JunkCoin",
   "background": {
     "service_worker": "background.js"
   },

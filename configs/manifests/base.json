@@ -1,8 +1,8 @@
 {
   "short_name": "JunkieWally",
-  "author": "Junkcoin Foundation",
+  "author": "NodeCattel",
   "manifest_version": 3,
-  "name": "JunkieWalley - Junkcoin Wallet",
+  "name": "JunkieWally - Junkcoin Wallet",
   "icons": {
     "48": "/logo-48.png",
     "128": "/logo-128.png",
