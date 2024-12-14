@@ -78,7 +78,7 @@ const TransactionList = () => {
 
         return (
           <div className="w-full" key={key}>
-            <div className="my-2 px-4 py-1.5 rounded-xl border border-neutral-700 font-medium uppercase sticky top-0 bg-neutral-900/50 backdrop-blur-sm z-10 w-max">
+            <div className="my-2 px-4 py-1.5 rounded-xl border border-neutral-700 font-medium uppercase sticky top-0 bg-blue-950/50 backdrop-blur-sm z-10 w-max">
               {isMempool ? "Unconfirmed" : <DateComponent date={Number(key)} />}
             </div>
 

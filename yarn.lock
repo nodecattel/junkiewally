@@ -2931,6 +2931,22 @@ junkcoinhdw@^0.0.2:
     junkcoinpair "^0.0.2"
     nintondo-bip39 "1.0.0"
 
+junkcoinjs-lib@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/junkcoinjs-lib/-/junkcoinjs-lib-0.0.4.tgz#98524ffbc70b94a3caf98e30ff80c5aecb462ded"
+  integrity sha512-w5q4+qVXIP+CHucrNwGSFZAUxLtMQAjydv27abQLkxUH8R532uT4ILU0AC5jqszU6PS7TBszdg6yT2CtmuLMxg==
+  dependencies:
+    "@noble/hashes" "1.3.3"
+    bech32 "2.0.0"
+    bells-secp256k1 "0.1.1"
+    bip174 "2.1.1"
+    bs58check "3.0.1"
+    ecpair "^3.0.0-rc.0"
+    junkcoinpair "^0.0.1"
+    tiny-secp256k1 "^2.2.3"
+    typeforce "1.18.0"
+    varuint-bitcoin "1.1.2"
+
 junkcoinjs-lib@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/junkcoinjs-lib/-/junkcoinjs-lib-0.0.1.tgz#3b82f392050827d4c544ced0001462e46fd8f62b"
@@ -2941,22 +2957,6 @@ junkcoinjs-lib@^0.0.1:
     bells-secp256k1 "0.1.1"
     bip174 "2.1.1"
     bs58check "3.0.1"
-    typeforce "1.18.0"
-    varuint-bitcoin "1.1.2"
-
-junkcoinjs-lib@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/junkcoinjs-lib/-/junkcoinjs-lib-0.0.2.tgz#60e10ee935b26cb3eeea9e9229c62a4406e57e52"
-  integrity sha512-XUmQFebb0CQU9YaD6FMMqhCamzfc3dHp1f7HYIpha3igSmk0wHnl/b+lF4QZYtdDtKhNpWQrvE3HXG8Zn+PByg==
-  dependencies:
-    "@noble/hashes" "1.3.3"
-    bech32 "2.0.0"
-    bells-secp256k1 "0.1.1"
-    bip174 "2.1.1"
-    bs58check "3.0.1"
-    ecpair "^3.0.0-rc.0"
-    junkcoinpair "^0.0.1"
-    tiny-secp256k1 "^2.2.3"
     typeforce "1.18.0"
     varuint-bitcoin "1.1.2"
 
