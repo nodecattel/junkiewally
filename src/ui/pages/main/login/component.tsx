@@ -11,6 +11,7 @@ import cn from "classnames";
 import PasswordInput from "@/ui/components/password-input";
 import { t } from "i18next";
 import LogoIcon from "@/ui/icons/Logo";
+import { useBodyClass } from "../../../utils/useBodyClass";
 
 interface FormType {
   password: string;
@@ -23,6 +24,11 @@ const Login = () => {
     },
   });
   const { updateAppState } = useAppState(ss(["updateAppState"]));
+
+  const randomClass = ["splash-1", "splash-2", "splash-3"][
+    Math.floor(Math.random() * 3)
+  ];
+  useBodyClass(randomClass);
 
   const { vaultIsEmpty, updateWalletState } = useWalletState(
     ss(["vaultIsEmpty", "updateWalletState"])

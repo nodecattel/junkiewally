@@ -8,7 +8,7 @@ import { useWalletState } from "@/ui/states/walletState";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoIcon from "@/ui/icons/Logo";
-import { useBodyClass } from "./useBodyClass";
+import { useBodyClass } from "../../../utils/useBodyClass";
 
 interface FormType {
   password: string;
@@ -18,7 +18,9 @@ interface FormType {
 const CreatePassword = () => {
   const navigate = useNavigate();
 
-  const randomClass = Math.random() < 0.5 ? "splash-1" : "splash-2";
+  const randomClass = ["splash-1", "splash-2", "splash-3"][
+    Math.floor(Math.random() * 3)
+  ];
   useBodyClass(randomClass);
 
   const formFields: { name: keyof FormType; label: string }[] = [
