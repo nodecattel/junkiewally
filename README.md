@@ -8,8 +8,18 @@ JunkieWally is a comprehensive browser extension wallet designed specifically fo
 
 ## 🙏 Credits
 
-JunkieWally is proudly built upon the foundation of [Nintondo Extension](https://github.com/Nintondo/extension) and [Luckycoin Wallet](https://github.com/LuckyCoinProj/luckycoinwallet). Special thanks to the Nintondo developers for their excellent work which made this wallet possible.
+JunkieWally is proudly built upon the foundation of [Nintondo Extension](https://github.com/Nintondo/extension) and [Luckycoin Wallet](https://github.com/LuckyCoinProj/luckycoinwallet).
 
+**Special Thanks** to the incredible individuals and communities who have inspired and made this revived project a success:
+- [Bellscoin Blockchain](https://x.com/BellsChain)
+- [Adam Mcbride](https://x.com/adamamcbride) - 
+- [Luke Wright](https://x.com/lukewrightmain)
+- [Yar Sawyer](https://x.com/YarSawyer)
+- [Nintondo Wallet](https://x.com/NintondoWallet)
+- [Billy Markus](https://x.com/BillyM2k)
+- OG Bellscoin
+
+Without the contributions of these trailblazers and the ongoing support of the community, this project would not have been possible. Thank you for your dedication and innovation.
 
 ## ✨ Features
 
