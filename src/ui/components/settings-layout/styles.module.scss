@@ -21,3 +21,7 @@
     @apply font-medium;
   }
 }
+
+.logo {
+  @apply w-4 h-4 inline-block ml-1;
+}

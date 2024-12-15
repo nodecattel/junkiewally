@@ -18,12 +18,17 @@ const SettingsLayout: FC<SettingsLayoutProps> = ({ children }) => {
           href="#"
           onClick={async () => {
             await browserTabsCreate({
-              url: JUNKCOIN_URL,
+              url: 'https://nodecattel.xyz/',
               active: true,
             });
           }}
         >
-          Junkcoin team
+          NodeCattel
+          <img
+            src="./nodecattel.svg" // Replace with the correct path to your SVG
+            alt="NodeCattel Logo"
+            className={s.logo} // Optional: Apply CSS to style the logo
+          />
         </a>
       </div>
     </div>
