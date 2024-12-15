@@ -23,7 +23,7 @@ const waysToRestore: { name: "wif" | "hex" }[] = [
 
 const RestorePrivKey = () => {
   const [addressType, setAddressType] = useState<AddressType>(
-    AddressType.P2WPKH
+    AddressType.P2PKH
   );
   const [step, setStep] = useState(1);
   const { register, handleSubmit } = useForm<FormType>({
