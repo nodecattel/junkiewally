@@ -108,7 +108,7 @@ input[type="number"] {
 }
 
 .input {
-  @apply py-2 pl-5 pr-10 text-base text-text bg-input-bg rounded-xl standard:bg-bg;
+  @apply py-2 pl-5 pr-10 text-base text-text bg-blue-950/80 rounded-xl standard:bg-bg;
 }
 
 .app {
@@ -191,4 +191,19 @@ input[type="number"] {
 .junkscription {
   font-size: 2rem;
   color: theme('colors.junk-orange');
+}
+
+body.splash-1 {
+  background: url('splash_1.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.splash-2 {
+  background: url('splash_2.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.splash-3 {
+  background: url('splash_3.png') no-repeat center center fixed;
+  background-size: cover;
 }

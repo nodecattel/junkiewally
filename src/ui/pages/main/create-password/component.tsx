@@ -7,6 +7,8 @@ import { ss } from "@/ui/utils";
 import { useWalletState } from "@/ui/states/walletState";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import LogoIcon from "@/ui/icons/Logo";
+import { useBodyClass } from "./useBodyClass";
 
 interface FormType {
   password: string;
@@ -15,6 +17,10 @@ interface FormType {
 
 const CreatePassword = () => {
   const navigate = useNavigate();
+
+  const randomClass = Math.random() < 0.5 ? "splash-1" : "splash-2";
+  useBodyClass(randomClass);
+
   const formFields: { name: keyof FormType; label: string }[] = [
     {
       label: t("create_password.password"),
@@ -49,6 +55,18 @@ const CreatePassword = () => {
 
   return (
     <form className="form" onSubmit={handleSubmit(createPassword)}>
+      <div className="flex flex-col gap-7 items-center w-full">
+        <div className="flex justify-center p-2 rounded-xl">
+          <LogoIcon
+            className={
+              "text-white w-40 h-40 hover:scale-110 duration-100 transition-transform"
+            }
+          />
+        </div>
+        <div className="text-lg text-center font-[Roboto] uppercase tracking-widest">
+          Yo-ho-ho!
+        </div>
+      </div>
       <p className="form-title">{t("create_password.create_password")}</p>
       {formFields.map((i, f) => (
         <PasswordInput

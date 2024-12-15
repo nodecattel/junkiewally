@@ -105,7 +105,10 @@ const buildOptions: BuildOptions = {
   external: [
     "fonts/*",
     "bg.png",
-    "bottom-bg.png"
+    "bottom-bg.png",
+    "splash_1.png",
+    "splash_2.png",
+    "splash_3.png",
   ],
   define: {
     "import.meta.url": '""',
