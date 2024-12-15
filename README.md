@@ -12,7 +12,7 @@ JunkieWally is proudly built upon the foundation of [Nintondo Extension](https:/
 
 **Special Thanks** to the incredible individuals and communities who have inspired and made this revived project a success:
 - [Bellscoin Blockchain](https://x.com/BellsChain)
-- [Adam Mcbride](https://x.com/adamamcbride) - 
+- [Adam Mcbride](https://x.com/adamamcbride)
 - [Luke Wright](https://x.com/lukewrightmain)
 - [Yar Sawyer](https://x.com/YarSawyer)
 - [Nintondo Wallet](https://x.com/NintondoWallet)
