@@ -99,8 +99,12 @@ Create release builds:
 bun release
 ```
 
+## 🔐 Privacy
+
+For detailed information about how we handle user data and protect your privacy, please read our [Privacy Policy](PRIVACY.md).
+
 ## 🔒 Security Note
 
 Always ensure you're downloading JunkieWally from official sources and verify all connection endpoints.
 
-⛵️ JunkieWally - Secure, Simple, Reliable. 🌊
+⛵️ JunkieWally - Secure, Simple, Reliable. 🌊​​​​​​​​​​​​​​​​
