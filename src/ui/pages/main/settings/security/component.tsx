@@ -15,11 +15,11 @@ const Security = () => {
       label: t("components.layout.change_password"),
       link: "/pages/change-password",
     },
-    {
-      icon: <Cog6ToothIcon className={ICON_CN} />,
-      label: t("components.layout.advanced"),
-      link: "/pages/advanced",
-    },
+    // {
+    //   icon: <Cog6ToothIcon className={ICON_CN} />,
+    //   label: t("components.layout.advanced"),
+    //   link: "/pages/advanced",
+    // },
   ];
 
   return (
