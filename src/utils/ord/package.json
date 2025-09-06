@@ -1,0 +1,42 @@
+{
+  "name": "bel-ord-utils",
+  "version": "0.2.12",
+  "type": "module",
+  "description": "Ordinals Utils",
+  "keywords": [
+    "bells",
+    "keyring"
+  ],
+  "homepage": "https://github.com/unisat-wallet/ord-utils#readme",
+  "bugs": {
+    "url": "https://github.com/unisat-wallet/ord-utils/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unisat-wallet/ord-utils.git"
+  },
+  "author": "Kervin",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "/lib"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && tsc"
+  },
+  "dependencies": {
+    "belcoinjs-lib": "0.1.3",
+    "bn.js": "5.2.1",
+    "bs58check": "2.1.2"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.5",
+    "@types/node": "^20.10.5",
+    "typescript": "latest"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

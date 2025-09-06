@@ -8,6 +8,7 @@ import {
   ArrowsPointingOutIcon,
   GlobeAltIcon,
   UserIcon,
+  ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import SettingsLayout from "@/ui/components/settings-layout";
 
@@ -31,6 +32,11 @@ const WalletSettings = () => {
       icon: <UserIcon className={ICON_CN} />,
       label: t("settings.address_type"),
       link: "/pages/change-addr-type",
+    },
+    {
+      icon: <ShieldCheckIcon className={ICON_CN} />,
+      label: "UTXO Protection",
+      link: "/pages/utxo-protection",
     },
     {
       icon: <ArrowsPointingOutIcon className={ICON_CN} />,

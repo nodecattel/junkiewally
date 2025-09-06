@@ -1,0 +1,95 @@
+.container {
+  @apply w-full mt-3 rounded-xl bg-input-bg/30 border border-gray-700/50;
+}
+
+.header {
+  @apply flex items-center justify-between p-3;
+}
+
+.clickable {
+  @apply cursor-pointer hover:bg-input-bg/50 transition-colors;
+}
+
+.titleSection {
+  @apply flex items-center gap-2;
+}
+
+.title {
+  @apply text-sm font-medium text-gray-300;
+}
+
+.loadingSpinner {
+  @apply flex items-center;
+}
+
+.summary {
+  @apply flex items-center gap-2;
+}
+
+.tokenCount {
+  @apply text-xs text-gray-400;
+}
+
+.expandIcon {
+  @apply text-gray-400;
+}
+
+.error {
+  @apply px-3 pb-2;
+}
+
+.tokenList {
+  @apply border-t border-gray-700/50 max-h-48 overflow-y-auto;
+}
+
+.tokenItem {
+  @apply flex items-center justify-between p-3 border-b border-gray-700/30 last:border-b-0;
+}
+
+.tokenInfo {
+  @apply flex-1;
+}
+
+.tokenTick {
+  @apply text-sm font-semibold text-junk-orange;
+}
+
+.tokenBalances {
+  @apply mt-1 space-y-1;
+}
+
+.balanceRow {
+  @apply flex items-center gap-2;
+}
+
+.balanceLabel {
+  @apply text-xs text-gray-400 font-medium;
+}
+
+.balanceValue {
+  @apply text-xs font-medium text-white;
+}
+
+.utxoCount {
+  @apply text-xs text-gray-500 ml-3;
+}
+
+.compactView {
+  @apply flex flex-wrap gap-2 p-3 pt-0;
+}
+
+.compactToken {
+  @apply flex items-center gap-1 px-2 py-1 rounded-md bg-input-bg/50 text-xs;
+}
+
+.compactTick {
+  @apply font-semibold text-junk-orange;
+}
+
+.compactBalance {
+  @apply text-gray-300;
+}
+
+.moreTokens {
+  @apply px-2 py-1 rounded-md bg-gray-700/50 text-xs text-gray-400;
+}

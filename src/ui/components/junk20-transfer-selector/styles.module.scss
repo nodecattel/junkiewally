@@ -1,0 +1,143 @@
+.container {
+  @apply w-full rounded-lg border border-gray-700 bg-gray-800/50 p-4;
+}
+
+.loading {
+  @apply p-4;
+}
+
+.error {
+  @apply flex items-center gap-2 p-4 text-red-400;
+}
+
+.empty {
+  @apply text-center py-8;
+}
+
+.emptyIcon {
+  @apply text-4xl mb-4;
+}
+
+.emptyText {
+  @apply space-y-2;
+  
+  h3 {
+    @apply text-lg font-semibold text-gray-200;
+  }
+  
+  p {
+    @apply text-sm text-gray-400;
+  }
+}
+
+.hint {
+  @apply text-xs text-blue-400 mt-3;
+}
+
+.header {
+  @apply flex items-center justify-between mb-4;
+}
+
+.title {
+  @apply flex flex-col gap-1;
+  
+  > span:first-child {
+    @apply text-sm font-semibold text-gray-200;
+  }
+}
+
+.count {
+  @apply text-xs text-gray-400;
+}
+
+.selectAllBtn {
+  @apply text-xs text-blue-400 hover:text-blue-300 transition-colors;
+}
+
+.selectionSummary {
+  @apply flex items-center justify-between p-3 bg-blue-900/20 border border-blue-600/30 rounded-md mb-4;
+}
+
+.summaryItem {
+  @apply flex flex-col gap-1;
+}
+
+.summaryLabel {
+  @apply text-xs text-blue-300;
+}
+
+.summaryValue {
+  @apply text-sm font-medium text-blue-100;
+}
+
+.utxoList {
+  @apply space-y-2 max-h-64 overflow-y-auto;
+}
+
+.utxoItem {
+  @apply flex items-center gap-3 p-3 rounded-md border border-gray-600 bg-gray-700/30 cursor-pointer transition-all hover:bg-gray-700/50;
+  
+  &.selected {
+    @apply border-blue-500 bg-blue-900/20;
+  }
+}
+
+.utxoCheckbox {
+  @apply flex-shrink-0;
+}
+
+.checkbox {
+  @apply w-5 h-5 rounded border-2 border-gray-500 flex items-center justify-center transition-all;
+  
+  &.checked {
+    @apply border-blue-500 bg-blue-500 text-white;
+  }
+}
+
+.utxoInfo {
+  @apply flex-1 min-w-0;
+}
+
+.utxoHeader {
+  @apply flex items-center justify-between mb-2;
+}
+
+.utxoId {
+  @apply text-sm font-mono text-gray-300;
+}
+
+.inscriptionNumber {
+  @apply text-xs text-gray-400 bg-gray-600 px-2 py-1 rounded;
+}
+
+.utxoDetails {
+  @apply flex items-center justify-between;
+}
+
+.tokenAmount {
+  @apply flex items-center gap-2;
+}
+
+.amount {
+  @apply text-sm font-medium text-gray-200;
+}
+
+.operation {
+  @apply text-xs text-gray-400 bg-gray-600 px-2 py-1 rounded;
+}
+
+.utxoValue {
+  @apply text-xs text-gray-400;
+}
+
+.footer {
+  @apply mt-4 pt-4 border-t border-gray-600;
+}
+
+.footerInfo {
+  @apply flex items-start gap-2;
+}
+
+.footerText {
+  @apply text-xs text-yellow-200;
+}

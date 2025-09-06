@@ -22,6 +22,7 @@ export const useAppState = create<IAppState>()(
     language: "en",
     activeTabs: [],
     network: networks.junkcoin,
+    utxoProtectionEnabled: true, // Default to enabled for safety
     updateAppState: async (app: Partial<IAppState>, updateBack = true) => {
       if (updateBack) {
         await proxy.updateAppState(app);

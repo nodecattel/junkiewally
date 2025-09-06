@@ -52,7 +52,7 @@ export const EXPLORER_URL = "https://jkc-explorer.dedoo.xyz/"
 export const SPLITTER_URL = JUNKCOIN_URL + "/belinals/splitter";
 
 export const TESTNET_API_URL = "https://testnet-api.junkiewally.xyz";
-export const TESTNET_EXPLORER_URL = "https://explorer-testnet.junk-coin.com"
+export const TESTNET_EXPLORER_URL = "https://explorer-testnet.junk-coin.com/"
 
 // Price API endpoint
 export const PRICE_API_URL = "https://jkc-explorer.dedoo.xyz";
@@ -67,13 +67,28 @@ export const getApiUrl = (network: Network) =>
 export const getExplorerUrl = (network: Network) =>
   isTestnet(network) ? TESTNET_EXPLORER_URL : EXPLORER_URL;
 
+// Explorer link generation functions
+export const getTransactionExplorerUrl = (txId: string, network: Network) => {
+  const baseUrl = getExplorerUrl(network);
+  return `${baseUrl}tx/${txId}`;
+};
+
+export const getAddressExplorerUrl = (address: string, network: Network) => {
+  const baseUrl = getExplorerUrl(network);
+  return `${baseUrl}address/${address}`;
+};
+
+export const getJunkscriptionUrl = (inscriptionId: string) => {
+  return `${getContentUrl()}/junkscription/${inscriptionId}`;
+};
+
 const HISTORY_URL =
   process.env.HISTORY_URL ?? "https://history.nintondo.io/pub";
 export const getHistoryUrl = () => HISTORY_URL;
 
 export const DEFAULT_FEES = {
-  fast: 2,
-  slow: 1,
+  fast: 300,
+  slow: 100,
 };
 
 export const DEFAULT_SERVICE_FEE = 1_000_000;

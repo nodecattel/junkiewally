@@ -3,16 +3,20 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 
 import s from "./styles.module.scss";
 import { t } from "i18next";
-import { EXPLORER_URL } from "@/shared/constant";
+import { getTransactionExplorerUrl } from "@/shared/constant";
 import { Link, useParams } from "react-router-dom";
+import { useAppState } from "@/ui/states/appState";
+import { ss } from "@/ui/utils";
 
 const FinalleSend = () => {
   const { txId } = useParams();
+  const { network } = useAppState(ss(["network"]));
 
   const onClick = async () => {
+    const explorerUrl = getTransactionExplorerUrl(txId!, network);
     await browserTabsCreate({
       active: true,
-      url: `${EXPLORER_URL}/transaction/${txId}`,
+      url: explorerUrl,
     });
   };
 

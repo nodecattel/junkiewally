@@ -71,6 +71,7 @@ class StorageService {
         "pendingWallet",
         "network",
         "language",
+        "utxoProtectionEnabled",
       ]),
     };
 
@@ -126,7 +127,8 @@ class StorageService {
       state.addressBook !== undefined ||
       state.pendingWallet !== undefined ||
       state.language !== undefined ||
-      state.network !== undefined
+      state.network !== undefined ||
+      state.utxoProtectionEnabled !== undefined
     ) {
       const localState = await this.getLocalValues();
       const cache: StorageInterface["cache"] = {
@@ -139,6 +141,8 @@ class StorageService {
         cache.pendingWallet = state.pendingWallet;
       if (state.language !== undefined) cache.language = state.language;
       if (state.network !== undefined) cache.network = state.network;
+      if (state.utxoProtectionEnabled !== undefined)
+        cache.utxoProtectionEnabled = state.utxoProtectionEnabled;
 
       const payload: StorageInterface = {
         cache: cache,
@@ -281,6 +285,7 @@ class StorageService {
           connectedSites: [],
           unpushedHexes: [],
           network: networks.junkcoin,
+          utxoProtectionEnabled: true, // Default to enabled for safety
         },
         enc: undefined,
       };

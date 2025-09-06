@@ -17,7 +17,7 @@ export const useInscribeTransferToken = () => {
 
   const getUtxos = async (amount: number): Promise<ApiUTXO[]> => {
     return (
-      (await apiController.getUtxos(currentAccount!.address!, {
+      (await apiController.getSafeUTXOs(currentAccount!.address!, {
         amount,
         hex: true,
       })) ?? []

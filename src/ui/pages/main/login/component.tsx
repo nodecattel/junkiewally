@@ -12,6 +12,7 @@ import PasswordInput from "@/ui/components/password-input";
 import { t } from "i18next";
 import LogoIcon from "@/ui/icons/Logo";
 import { useBodyClass } from "../../../utils/useBodyClass";
+import { useSplashManager } from "../../../utils/splashManager";
 
 interface FormType {
   password: string;
@@ -25,10 +26,8 @@ const Login = () => {
   });
   const { updateAppState } = useAppState(ss(["updateAppState"]));
 
-  const randomClass = ["splash-1", "splash-2", "splash-3"][
-    Math.floor(Math.random() * 3)
-  ];
-  useBodyClass(randomClass);
+  const splashClass = useSplashManager(true); // true = change on wallet reopen
+  useBodyClass(splashClass);
 
   const { vaultIsEmpty, updateWalletState } = useWalletState(
     ss(["vaultIsEmpty", "updateWalletState"])

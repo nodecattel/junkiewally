@@ -55,7 +55,7 @@ export function isTestnet(network: Network) {
 }
 
 export function getNetworkCurrency(network: Network): string {
-  return isTestnet(network) ? "tJKC" : "JKC";
+  return isTestnet(network) ? "tɈKC" : "ɈKC";
 }
 
 export function ss<T extends Record<string, any>, K extends keyof T = keyof T>(

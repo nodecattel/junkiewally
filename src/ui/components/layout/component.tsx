@@ -126,6 +126,10 @@ export default function PagesLayout() {
           title: t("components.layout.network_settings"),
         },
         {
+          route: "/pages/utxo-protection",
+          title: "UTXO Protection",
+        },
+        {
           route: "/pages/create-send",
           title: t("components.layout.send"),
           backAction: () => {

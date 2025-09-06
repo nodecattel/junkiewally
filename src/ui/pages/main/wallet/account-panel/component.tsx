@@ -19,12 +19,14 @@ import { useAppState } from "@/ui/states/appState";
 import { getNetworkCurrency } from "@/ui/utils";
 import { ss } from "@/ui/utils";
 import { calcBalanceLength } from "@/ui/utils";
+import Junk20Balance from "@/ui/components/junk20-balance";
+import ProtectedBadge from "@/ui/components/protected-badge";
 
 const AccountPanel = () => {
   const { currentPrice } = useTransactionManagerContext();
   const currentAccount = useGetCurrentAccount();
   const currentWallet = useGetCurrentWallet();
-  const { network } = useAppState(ss(["network"]));
+  const { network, utxoProtectionEnabled } = useAppState(ss(["network", "utxoProtectionEnabled"]));
   const cardinalBalance = currentAccount?.balance ?? 0;
   const ordinalBalance = currentAccount?.inscriptionBalance ?? 0;
   const balance = cardinalBalance / 10 ** 8 + ordinalBalance;
@@ -85,14 +87,20 @@ const AccountPanel = () => {
               ? "Root account"
               : currentAccount?.name}
           </p>
-          <CopyBtn
-            title={currentAccount?.address}
-            className={s.accPubAddress}
-            label={shortAddress(currentAccount?.address, 9)}
-            value={currentAccount?.address}
-          />
+          <div className="flex items-center gap-2">
+            <CopyBtn
+              title={currentAccount?.address}
+              className={s.accPubAddress}
+              label={shortAddress(currentAccount?.address, 9)}
+              value={currentAccount?.address}
+            />
+            <ProtectedBadge show={utxoProtectionEnabled ?? false} size="sm" />
+          </div>
         </div>
       </div>
+
+      {/* Junk-20 Token Balance Display */}
+      <Junk20Balance />
 
       <div className={cn(s.receiveSendBtns)}>
         <Link to={"/pages/receive"} className={s.btn}>

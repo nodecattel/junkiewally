@@ -5,14 +5,13 @@ import WalletPanel from "./wallet-panel";
 import AccountPanel from "./account-panel";
 import { useGetCurrentAccount } from "@/ui/states/walletState";
 import { useBodyClass } from "../../../utils/useBodyClass";
+import { useSplashManager } from "../../../utils/splashManager";
 
 const Wallet = () => {
   const currentAccount = useGetCurrentAccount();
 
-  const randomClass = ["splash-1", "splash-2", "splash-3"][
-    Math.floor(Math.random() * 3)
-  ];
-  useBodyClass(randomClass);
+  const splashClass = useSplashManager(false); // false = don't change on mount, use timer
+  useBodyClass(splashClass);
 
   if (!currentAccount) return <TailSpin className="animate-spin" />;
 

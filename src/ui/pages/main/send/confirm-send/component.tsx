@@ -28,7 +28,7 @@ const ConfirmSend = () => {
     try {
       const data = await pushTx(location.state.hex);
       console.log(data);
-      if (!data) {
+      if (!data || !data.txid) {
         throw new Error("Failed pushing transaction");
       }
 
@@ -39,7 +39,7 @@ const ConfirmSend = () => {
         }
       }, 100);
 
-      navigate(`/pages/finalle-send/${data}`);
+      navigate(`/pages/finalle-send/${data.txid}`);
 
       if (location.state.save) {
         await updateAddressBook(location.state.toAddress);

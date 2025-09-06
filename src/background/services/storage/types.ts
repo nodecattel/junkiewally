@@ -25,5 +25,6 @@ export interface StorageInterface {
     language?: string;
     unpushedHexes?: string[];
     network?: Network;
+    utxoProtectionEnabled?: boolean;
   };
 }

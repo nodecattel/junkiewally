@@ -1,0 +1,83 @@
+.wrapper {
+  @apply h-full w-full p-6 space-y-6;
+}
+
+.header {
+  @apply space-y-4;
+}
+
+.titleSection {
+  @apply space-y-2;
+}
+
+.titleRow {
+  @apply flex items-center gap-3;
+}
+
+.icon {
+  @apply w-6 h-6 text-green-400;
+}
+
+.title {
+  @apply text-xl font-semibold text-white;
+}
+
+.subtitle {
+  @apply text-sm text-gray-400 leading-relaxed;
+}
+
+.settingCard {
+  @apply bg-gray-800/30 rounded-lg border border-gray-700 p-4 space-y-4;
+}
+
+.description {
+  @apply pt-2 border-t border-gray-700;
+}
+
+.descriptionText {
+  @apply text-xs text-gray-400 leading-relaxed;
+}
+
+.warningCard {
+  @apply bg-yellow-900/20 border border-yellow-700 rounded-lg p-4 space-y-3;
+}
+
+.warningHeader {
+  @apply flex items-center gap-2;
+}
+
+.warningIcon {
+  @apply w-5 h-5 text-yellow-400;
+}
+
+.warningTitle {
+  @apply text-sm font-medium text-yellow-400;
+}
+
+.warningContent {
+  @apply space-y-2;
+}
+
+.warningText {
+  @apply text-xs text-yellow-200 leading-relaxed;
+}
+
+.infoCard {
+  @apply bg-gray-900/50 rounded-lg border border-gray-600 p-4 space-y-3;
+}
+
+.infoTitle {
+  @apply text-sm font-medium text-white;
+}
+
+.infoList {
+  @apply space-y-2;
+}
+
+.infoItem {
+  @apply text-xs text-gray-300 leading-relaxed;
+  
+  strong {
+    @apply text-gray-200;
+  }
+}

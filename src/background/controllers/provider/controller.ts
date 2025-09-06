@@ -138,7 +138,8 @@ class ProviderController implements IProviderController {
 
     const network = storageService.appState.network;
 
-    let utxos = await apiController.getUtxos(
+    // Use safe UTXOs that don't contain junkscriptions
+    let utxos = await apiController.getSafeUTXOs(
       storageService.currentAccount.address,
       {
         amount:
@@ -152,7 +153,7 @@ class ProviderController implements IProviderController {
     if ((utxos?.length ?? 0) > 500) throw new Error("Consolidate utxos");
 
     if ((utxos?.length ?? 0) > 5 && !payload.receiverToPayFee) {
-      utxos = await apiController.getUtxos(
+      utxos = await apiController.getSafeUTXOs(
         storageService.currentAccount.address,
         {
           amount:

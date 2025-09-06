@@ -9,10 +9,12 @@ import {
   FindInscriptionsByOutpointResponseItem,
 } from "@/shared/interfaces/inscriptions";
 import { IToken } from "@/shared/interfaces/token";
+import { Junk20BalanceResponse, Junk20TokenSummary } from "@/shared/interfaces/junk20";
 import { customFetch, fetchProps } from "@/shared/utils";
 import { storageService } from "../services";
 import { DEFAULT_FEES } from "@/shared/constant";
 import { isValidTXID } from "@/ui/utils";
+import utxoProtectionService, { UTXOProtectionResult } from "../services/utxoProtectionService";
 
 export interface UtxoQueryParams {
   hex?: boolean;
@@ -35,6 +37,9 @@ export interface IApiController {
   getFees(): Promise<{ fast: number; slow: number } | undefined>;
   getAccountStats(address: string): Promise<IAccountStats | undefined>;
   getTokens(address: string): Promise<IToken[] | undefined>;
+  getJunk20Balance(address: string): Promise<Junk20TokenSummary[] | undefined>;
+  analyzeUTXOProtection(address: string, utxos: ApiUTXO[]): Promise<UTXOProtectionResult>;
+  getSafeUTXOs(address: string, params?: UtxoQueryParams): Promise<ApiUTXO[] | undefined>;
   getTransactionHex(txid: string): Promise<string | undefined>;
   getTransaction(txid: string): Promise<ITransaction | undefined>;
   getUtxoValues(outpoints: string[]): Promise<number[] | undefined>;
@@ -56,6 +61,7 @@ export interface IApiController {
     outpoint: string;
     address: string;
   }): Promise<FindInscriptionsByOutpointResponseItem[] | undefined>;
+  getInscribedOutpoints(address: string): Promise<string[] | undefined>;
 }
 
 type FetchType = <T>(
@@ -63,14 +69,20 @@ type FetchType = <T>(
 ) => Promise<T | undefined>;
 
 class ApiController implements IApiController {
-  private fetch: FetchType = async (p: Omit<fetchProps, "network">) => {
+  private fetch: FetchType = async <T>(p: Omit<fetchProps, "network">): Promise<T | undefined> => {
     try {
-      return await customFetch({
+      const result = await customFetch<T>({
         ...p,
         network: storageService.appState.network,
       });
-    } catch {
-      return;
+
+      // Log successful API calls for debugging
+      console.log(`[API Controller] ${p.service} ${p.path} - Success`);
+      return result;
+    } catch (error) {
+      // Enhanced error logging for debugging
+      console.error(`[API Controller] ${p.service} ${p.path} - Error:`, error);
+      return undefined;
     }
   };
 
@@ -194,6 +206,43 @@ class ApiController implements IApiController {
     });
   }
 
+  async getJunk20Balance(address: string): Promise<Junk20TokenSummary[] | undefined> {
+    try {
+      const data = await this.fetch<Junk20BalanceResponse>({
+        path: `/junk20/balance/${address}`,
+        service: "content",
+      });
+
+      if (!data?.junk20) {
+        return [];
+      }
+
+      // Transform the API response into a summary format with validation
+      return data.junk20.map(token => ({
+        tick: token.tick || 'unknown',
+        balance: token.available || "0",  // Map 'available' from API to 'balance' for display
+        transferable: token.transferable || "0",
+        utxoCount: token.utxos?.length || 0,
+      }));
+    } catch (error) {
+      console.warn('Failed to fetch Junk-20 balance:', error);
+      return [];
+    }
+  }
+
+  async analyzeUTXOProtection(address: string, utxos: ApiUTXO[]): Promise<UTXOProtectionResult> {
+    return await utxoProtectionService.analyzeUTXOs(address, utxos);
+  }
+
+  async getSafeUTXOs(address: string, params?: UtxoQueryParams): Promise<ApiUTXO[] | undefined> {
+    // Get all UTXOs first
+    const allUtxos = await this.getUtxos(address, params);
+    if (!allUtxos) return undefined;
+
+    // Filter out protected UTXOs
+    return await utxoProtectionService.getSafeUTXOsForSpending(address, allUtxos);
+  }
+
   async getTransaction(txid: string) {
     return await this.fetch<ITransaction>({
       path: "/tx/" + txid,
@@ -295,10 +344,53 @@ class ApiController implements IApiController {
     outpoint: string;
     address: string;
   }) {
-    return await this.fetch<FindInscriptionsByOutpointResponseItem[]>({
-      path: `/find_meta/${data.outpoint}?address=${data.address}`,
-      service: "electrs",
-    });
+    try {
+      console.log(`[API Controller] Finding inscriptions for outpoint: ${data.outpoint}, address: ${data.address}`);
+
+      // Get all inscribed outpoints for the address
+      const inscribedOutpoints = await this.getInscribedOutpoints(data.address);
+
+      if (inscribedOutpoints && inscribedOutpoints.includes(data.outpoint)) {
+        // Return a mock inscription object if the outpoint is inscribed
+        const result: FindInscriptionsByOutpointResponseItem[] = [{
+          genesis: `${data.outpoint}_inscription`,
+          number: 0,
+          owner: data.address,
+          height: 0,
+        }];
+        console.log(`[API Controller] Outpoint ${data.outpoint} is inscribed`);
+        return result;
+      }
+
+      console.log(`[API Controller] Outpoint ${data.outpoint} is not inscribed`);
+      return [];
+    } catch (error) {
+      console.error(`[API Controller] Error finding inscriptions for ${data.outpoint}:`, error);
+      return undefined;
+    }
+  }
+
+  async getInscribedOutpoints(address: string): Promise<string[] | undefined> {
+    try {
+      console.log(`[API Controller] Fetching inscribed outpoints for address: ${address}`);
+
+      const result = await this.fetch<Array<{ outpoint: string[] }>>({
+        path: `/address/${address}`,
+        service: "content",
+      });
+
+      if (result && result.length > 0 && result[0].outpoint) {
+        const outpoints = result[0].outpoint;
+        console.log(`[API Controller] Found ${outpoints.length} inscribed outpoints for ${address}`);
+        return outpoints;
+      }
+
+      console.log(`[API Controller] No inscribed outpoints found for ${address}`);
+      return [];
+    } catch (error) {
+      console.error(`[API Controller] Error fetching inscribed outpoints for ${address}:`, error);
+      return undefined;
+    }
   }
 }
 

@@ -15,5 +15,6 @@ export function emptyAppState(): IAppStateBase {
     addressBook: [],
     language: "en",
     network: networks.junkcoin,
+    utxoProtectionEnabled: true, // Default to enabled for safety
   };
 }

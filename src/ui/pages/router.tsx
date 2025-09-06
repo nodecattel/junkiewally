@@ -37,6 +37,7 @@ import MultiPsbtSign from "./provider/multi-psbt-sign";
 import SignMessage from "./provider/sign-message";
 import SignPsbt from "./provider/sign-psbt";
 import NetworkSettings from "./main/settings/wallet/network";
+import UTXOProtectionSettings from "./main/settings/wallet/utxo-protection";
 
 export const guestRouter = createHashRouter([
   {
@@ -83,6 +84,7 @@ export const authenticatedRouter = createHashRouter([
       { path: "inscriptions", element: <Inscriptions /> },
       { path: "wallet-settings", element: <WalletSettings /> },
       { path: "network-settings", element: <NetworkSettings /> },
+      { path: "utxo-protection", element: <UTXOProtectionSettings /> },
       {
         path: "bel-20",
         element: <TokensComponent />,

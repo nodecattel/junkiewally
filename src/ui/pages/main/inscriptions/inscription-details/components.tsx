@@ -10,7 +10,7 @@ import { useAppState } from "@/ui/states/appState";
 import { ss } from "@/ui/utils";
 import { useControllersState } from "@/ui/states/controllerState";
 import { parseLocation } from "@/shared/utils";
-import { getContentUrl } from "@/shared/constant";
+import { getContentUrl, getJunkscriptionUrl } from "@/shared/constant";
 
 type PathOf<T> = T extends object
   ? {
@@ -189,7 +189,7 @@ const InscriptionDetails = () => {
               <div
                 onClick={async () => {
                   await openContent(
-                    `${getContentUrl()}/junkscription/${inscription.inscription_id}`
+                    getJunkscriptionUrl(inscription.inscription_id)
                   );
                 }}
                 className="text-orange-400 cursor-pointer text-sm font-medium"

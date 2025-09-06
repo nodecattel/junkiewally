@@ -11,7 +11,7 @@ import { shortAddress } from "@/shared/utils/transactions";
 import toast from "react-hot-toast";
 import { t } from "i18next";
 import { useGetCurrentAccount } from "@/ui/states/walletState";
-import { EXPLORER_URL, TESTNET_EXPLORER_URL } from "@/shared/constant";
+import { EXPLORER_URL, TESTNET_EXPLORER_URL, getTransactionExplorerUrl } from "@/shared/constant";
 import { useControllersState } from "@/ui/states/controllerState";
 import { ss } from "@/ui/utils";
 import { useTransactionManagerContext } from "@/ui/utils/tx-ctx";
@@ -38,10 +38,9 @@ const TransactionInfo = () => {
   );
 
   const onOpenExplorer = async () => {
-    const explorerUrl = getBaseUrl('explorer', network);
-    const txPath = explorerUrl === TESTNET_EXPLORER_URL ? 'tx' : 'transaction';
+    const explorerUrl = getTransactionExplorerUrl(txId!, network);
     await browserTabsCreate({
-      url: `${explorerUrl}/${txPath}/${txId}`,
+      url: explorerUrl,
       active: true,
     });
   };

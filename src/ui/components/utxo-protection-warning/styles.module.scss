@@ -1,0 +1,103 @@
+.container {
+  @apply w-full rounded-lg border;
+}
+
+.warningSection {
+  @apply bg-yellow-900/20 border-yellow-600/50 p-4;
+}
+
+.warningHeader {
+  @apply flex items-center gap-2 mb-3;
+}
+
+.warningIcon {
+  @apply w-5 h-5 text-yellow-500;
+}
+
+.warningTitle {
+  @apply text-sm font-semibold text-yellow-200;
+}
+
+.warningContent {
+  @apply space-y-3;
+}
+
+.warningText {
+  @apply text-sm text-yellow-100;
+}
+
+.protectionStats {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 bg-yellow-900/30 rounded-md;
+}
+
+.statItem {
+  @apply flex flex-col gap-1;
+}
+
+.statLabel {
+  @apply text-xs text-yellow-300;
+}
+
+.statValue {
+  @apply text-sm font-medium text-yellow-100;
+}
+
+.protectedList {
+  @apply mt-4 space-y-2;
+}
+
+.listTitle {
+  @apply text-sm font-medium text-yellow-200 mb-2;
+}
+
+.protectedItem {
+  @apply flex items-center justify-between p-2 bg-yellow-900/40 rounded-md;
+}
+
+.utxoInfo {
+  @apply flex flex-col gap-1;
+}
+
+.utxoId {
+  @apply text-xs font-mono text-yellow-100;
+}
+
+.utxoValue {
+  @apply text-xs text-yellow-300;
+}
+
+.protectionInfo {
+  @apply flex flex-col items-end gap-1;
+}
+
+.protectionType {
+  @apply text-xs font-medium text-yellow-200 bg-yellow-800/50 px-2 py-1 rounded;
+}
+
+.tokenInfo {
+  @apply text-xs text-yellow-300;
+}
+
+.moreItems {
+  @apply text-xs text-yellow-400 text-center py-2;
+}
+
+.safeSection {
+  @apply bg-green-900/20 border-green-600/50 p-4;
+}
+
+.safeHeader {
+  @apply flex items-center gap-2 mb-2;
+}
+
+.safeIcon {
+  @apply w-5 h-5 text-green-500;
+}
+
+.safeTitle {
+  @apply text-sm font-semibold text-green-200;
+}
+
+.safeText {
+  @apply text-sm text-green-100;
+}

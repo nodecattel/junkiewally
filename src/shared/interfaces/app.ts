@@ -8,4 +8,5 @@ export interface IAppStateBase {
   pendingWallet?: string;
   language: string;
   network: Network;
+  utxoProtectionEnabled?: boolean; // UTXO Protection setting (default: true)
 }
