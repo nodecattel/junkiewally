@@ -1,6 +1,6 @@
 import { Network } from "junkcoinjs-lib";
 import browser from "./browser";
-import { getApiUrl, getContentUrl, getHistoryUrl, getExplorerUrl } from "../constant";
+import { getApiUrl, getContentUrl, getHistoryUrl, getExplorerUrl, PRICE_API_URL } from "../constant";
 
 export const t = (name: string) => browser.i18n.getMessage(name);
 
@@ -16,7 +16,7 @@ export interface fetchProps extends RequestInit {
   error?: boolean;
   json?: boolean;
   network: Network;
-  service: "electrs" | "content" | "history" | "explorer";
+  service: "electrs" | "content" | "history" | "explorer" | "price";
 }
 
 export const getBaseUrl = (service: fetchProps["service"], testnet: Network) => {
@@ -29,6 +29,8 @@ export const getBaseUrl = (service: fetchProps["service"], testnet: Network) => 
       return getHistoryUrl();
     case "explorer":
       return getExplorerUrl(testnet);
+    case "price":
+      return PRICE_API_URL;
   }
 };
 

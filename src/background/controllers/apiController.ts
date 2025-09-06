@@ -153,15 +153,25 @@ class ApiController implements IApiController {
   }
 
   async getJKCPrice() {
-    const data = await this.fetch<{ usd: number }>({
-      path: "/last-price",
-      service: "electrs",
+    const data = await this.fetch<{
+      difficulty: number;
+      supply: number;
+      hashrate: number;
+      lastPrice: number;
+      lastUSDPrice: number;
+      connections: number;
+      blockcount: number;
+      masternodeCountOnline: number;
+      masternodeCountOffline: number;
+    }>({
+      path: "/ext/getsummary",
+      service: "price",
     });
     if (!data) {
       return undefined;
     }
     return {
-      usd: data.usd,
+      usd: data.lastUSDPrice,
     };
   }
 

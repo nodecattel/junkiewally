@@ -48,11 +48,14 @@ export const EVENTS = {
 
 export const JUNKCOIN_URL = "https://junkiewally.xyz";
 export const API_URL = "https://api.junkiewally.xyz";
-export const EXPLORER_URL = "https://junkpool.blockraid.io"
+export const EXPLORER_URL = "https://jkc-explorer.dedoo.xyz/"
 export const SPLITTER_URL = JUNKCOIN_URL + "/belinals/splitter";
 
 export const TESTNET_API_URL = "https://testnet-api.junkiewally.xyz";
 export const TESTNET_EXPLORER_URL = "https://explorer-testnet.junk-coin.com"
+
+// Price API endpoint
+export const PRICE_API_URL = "https://jkc-explorer.dedoo.xyz";
 
 const CONTENT_URL =
   process.env.CONTENT_URL ?? "https://ord.junkiewally.xyz";
