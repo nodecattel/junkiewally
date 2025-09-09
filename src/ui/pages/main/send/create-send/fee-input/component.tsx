@@ -14,6 +14,7 @@ interface Props {
 }
 
 const MAX_FEE = 200_000;
+const CUSTOM_FEE_IDENTIFIER = -1; // Special identifier for custom fee input
 
 const FeeInput: FC<Props> = ({ onChange, value }) => {
   const { feeRates } = useTransactionManagerContext();
@@ -23,7 +24,7 @@ const FeeInput: FC<Props> = ({ onChange, value }) => {
 
   const onSelect = (value: number) => {
     setSelected(value);
-    if (value !== 3) {
+    if (value !== CUSTOM_FEE_IDENTIFIER) {
       onChange(value);
     }
   };
@@ -43,7 +44,7 @@ const FeeInput: FC<Props> = ({ onChange, value }) => {
       {
         title: t("send.create_send.fee_input.custom"),
         description: "",
-        value: 3,
+        value: CUSTOM_FEE_IDENTIFIER,
       },
     ],
     [feeRates]
@@ -51,7 +52,7 @@ const FeeInput: FC<Props> = ({ onChange, value }) => {
 
   useEffect(() => {
     setSelected((prev) => {
-      if (prev === 3) return prev;
+      if (prev === CUSTOM_FEE_IDENTIFIER) return prev;
       if (cards.some((i) => i.value === prev)) return prev;
       return feeRates?.slow ?? DEFAULT_FEES.slow;
     });
@@ -70,7 +71,7 @@ const FeeInput: FC<Props> = ({ onChange, value }) => {
           />
         ))}
       </div>
-      {selected === 3 && (
+      {selected === CUSTOM_FEE_IDENTIFIER && (
         <InputNumber
           value={value}
           onChange={(value) => {

@@ -4,6 +4,7 @@ import { useCreateJKCTxCallback, useSendTransferTokens } from "@/ui/hooks/transa
 import { useGetCurrentAccount } from "@/ui/states/walletState";
 import { useAppState } from "@/ui/states/appState";
 import { getAddressType, normalizeAmount, ss } from "@/ui/utils";
+import { DEFAULT_FEES } from "@/shared/constant";
 import cn from "classnames";
 import { t } from "i18next";
 
@@ -72,7 +73,7 @@ const CreateSend = () => {
     address: "",
     amount: "",
     includeFeeInAmount: false,
-    feeAmount: 3,
+    feeAmount: DEFAULT_FEES.slow, // Initialize with proper default slow fee rate
   });
   const [includeFeeLocked, setIncludeFeeLocked] = useState<boolean>(false);
   const currentAccount = useGetCurrentAccount();
